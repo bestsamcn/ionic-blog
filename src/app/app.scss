@@ -14,3 +14,57 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.ion-ios-home-blog, .ion-ios-home-blog-outline {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+  	width: 26px !important;
+  	height: 26px !important;
+  	min-width: 26px !important;
+  	line-height:26px !important;
+  	font-size:20px !important;
+
+}
+
+.ion-ios-home-blog:before, .ion-ios-home-blog-outline:before {
+  	content: '\f1dc';
+}
+
+.ion-ios-about-blog, .ion-ios-about-blog-outline {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+  	width: 26px !important;
+  	height: 26px !important;
+  	min-width: 26px !important;
+  	line-height:26px !important;
+  	font-size:20px !important;
+
+}
+
+.ion-ios-about-blog:before, .ion-ios-about-blog-outline:before {
+  	content: '\f031';
+}
+
+
+.ion-ios-message-blog, .ion-ios-message-blog-outline {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+  	width: 26px !important;
+  	height: 26px !important;
+  	min-width: 26px !important;
+  	line-height:26px !important;
+  	font-size:20px !important;
+
+}
+
+.ion-ios-message-blog:before, .ion-ios-message-blog-outline:before {
+  	content: '\f032';
+}
