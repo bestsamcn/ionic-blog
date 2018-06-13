@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+//font-awesome
 @Component({
   	selector: 'fa',
   	templateUrl: 'fa.html'

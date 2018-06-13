@@ -1,0 +1,127 @@
+.article{
+    background:#fff;
+    width:100%;
+    padding:0 10px;
+}
+.article .item{
+    width:100%;
+    padding:20px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom:1px solid #eee;
+}
+.article .item.has-right{
+    padding-right: 230px;
+}
+.article .item .left{
+    width:100%;
+}
+.article .item .left .preview{
+    color:#3E5E77;
+}
+
+.article .item .right{
+    width:180px;
+    height:100%;
+    position: absolute;
+    right:0;
+    padding:10px;
+    display: -webkit-flex;
+    display: flex;
+    align-items:center;
+    top:0;
+}
+.article .item:nth-of-type(1){
+    margin-top:0;
+}
+.article .item .img{
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    border-radius: 2px;
+    /*background: #f6f6f6;*/
+    padding: 0;
+    margin: 0;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.article .item .img img{
+    width:100%;
+}
+.article .item .title{
+    width:100%;
+}
+.article .item .title h4{
+    font-size: 16px;
+    text-align: left;
+    // margin:10px 0;
+}
+.article .item .title .info{
+    overflow: hidden;
+    margin:10px 0;
+}
+.article .item .title .info span{
+    float: left;
+    margin-right:20px;
+    color:#bbb;
+    font-size: 12px;
+}
+.article .item .title .info span:before{
+    margin-right: 5px;
+}
+.article .item .title .info a{
+    float: right;
+    color:#bbb;
+    font-size: 12px;
+}
+.article .item .title .info a.active{
+    color:#E24C3C
+}
+.article .item .title .info a:before{
+    margin-right: 5px;
+}
+.article .item .preview{
+    text-align: left;
+    color:#999;
+    line-height: 22px;
+    margin-top:10px;
+}
+.article .item .left .bottom{
+    display: -webkit-flex;
+    display: flex;
+    align-items:center;
+    margin-top:10px;
+}
+.article .item .left .bottom .more{
+    padding:2px 6px;
+    text-align: center;
+    color:#fff;
+    border:1px solid #1ABC9C;
+    display: block;
+    float: left;
+    font-size: 12px;
+    color:#1ABC9C;
+    border-radius: 2px;
+   
+}
+.article .item .left .bottom .more:before{
+    margin-right: 5px;
+}
+.article .more-btn{
+    width:60%;
+    height:40px;
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    color:#bdc3c7;
+    border-radius: 40px;
+    border:1px solid #bdc3c7;
+    margin:0 auto;
+}
+@media screen and  (min-width:768px){
+    .article{
+        padding:0 20px 10px 20px;
+    }
+}
