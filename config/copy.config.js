@@ -2,7 +2,6 @@
 // provide a name for an entry, it can be anything such as 'copyAssets' or 'copyFonts'
 // then provide an object with a `src` array of globs and a `dest` string
 // 
-console.log('copy.config.jsffffffffffffffffffffffffff')
 module.exports = {
   copyAssets: {
     src: ['{{SRC}}/assets/**/*'],

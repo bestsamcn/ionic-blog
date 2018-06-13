@@ -14,7 +14,7 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.ion-ios-home-blog, .ion-ios-home-blog-outline {
+.ion-ios-home-blog, .ion-ios-home-blog-outline, .ion-md-home-blog, .ion-md-home-blog-outline {
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: inherit;
@@ -28,11 +28,11 @@
 
 }
 
-.ion-ios-home-blog:before, .ion-ios-home-blog-outline:before {
+.ion-ios-home-blog:before, .ion-ios-home-blog-outline:before, .ion-md-home-blog:before, .ion-md-home-blog-outline:before {
   	content: '\f1dc';
 }
 
-.ion-ios-about-blog, .ion-ios-about-blog-outline {
+.ion-ios-about-blog, .ion-ios-about-blog-outline, .ion-md-about-blog, .ion-md-about-blog-outline {
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: inherit;
@@ -46,12 +46,12 @@
 
 }
 
-.ion-ios-about-blog:before, .ion-ios-about-blog-outline:before {
+.ion-ios-about-blog:before, .ion-ios-about-blog-outline:before, .ion-md-about-blog:before, .ion-md-about-blog-outline:before {
   	content: '\f031';
 }
 
 
-.ion-ios-message-blog, .ion-ios-message-blog-outline {
+.ion-ios-message-blog, .ion-ios-message-blog-outline, .ion-md-message-blog, .ion-md-message-blog-outline {
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: inherit;
@@ -65,6 +65,6 @@
 
 }
 
-.ion-ios-message-blog:before, .ion-ios-message-blog-outline:before {
+.ion-ios-message-blog:before, .ion-ios-message-blog-outline:before, .ion-md-message-blog:before, .ion-md-message-blog-outline:before {
   	content: '\f032';
 }
