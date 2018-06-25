@@ -8,6 +8,12 @@ import { PagesModule } from '../pages/pages.module';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
+//services
+import { GlobalService } from '../providers/global';
+import { RequestService } from '../providers/request';
+
+
 @NgModule({
     declarations: [
         MyApp
@@ -26,7 +32,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         SplashScreen, {
             provide: ErrorHandler,
             useClass: IonicErrorHandler
-        }
+        },
+        GlobalService,
+        RequestService
     ]
 })
 export class AppModule {}

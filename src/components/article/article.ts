@@ -7,7 +7,7 @@ import { POSTER_URL } from '../../config';
   templateUrl: 'article.html'
 })
 export class ArticleComponent implements OnInit {
-	@Input() articleList:Array<Object>;
+	@Input() articleList:Array<Object> [];
 	@Input() isMore?:boolean = false;
 	@Input() isShowMore?:boolean = true;
 	@Output() onMoreClick = new EventEmitter();

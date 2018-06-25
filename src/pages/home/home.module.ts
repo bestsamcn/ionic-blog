@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 
-import { AboutPage } from './about/about';
-import { MessagePage } from './message/message';
-import { TabsPage } from './tabs/tabs';
+import { HomePage } from './home';
 
-import { HomeModule } from './home/home.module';
-import { ComponentsModule } from '../components/components.module';
+import { ArticleComponent } from '../../components/article/article';
+import { ComponentsModule } from '../../components/components.module';
 import { SuperTabsModule, SuperTabsController } from 'ionic2-super-tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,29 +13,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 //布局模块
 @NgModule({
 	declarations: [
-		AboutPage,
-		MessagePage,
-		TabsPage
+		HomePage
     ],
 	imports: [
 		IonicModule,
-		HomeModule,
 		ComponentsModule, 
 		SuperTabsModule
 	],
 	entryComponents:[
-		TabsPage,
-		AboutPage,
-		MessagePage
+		HomePage,
+		ArticleComponent
 	],
 	exports: [
-		AboutPage,
-		MessagePage,
-		TabsPage
+		HomePage
     ],
     providers:[
 		StatusBar,
 		SuperTabsController
     ]
 })
-export class PagesModule {}
+export class HomeModule {}
