@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RequestService } from './request';
-import { PAGE_SIZE } from '../config.index';
+import { PAGE_SIZE } from '../config/index';
 import { GlobalService } from './global';
 
 @Injectable()

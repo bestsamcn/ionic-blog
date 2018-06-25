@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { POSTER_URL } from '../../config';
+import { POSTER_URL } from '../../config/index';
 
 @Component({
   selector: 'article',
@@ -12,13 +12,13 @@ export class ArticleComponent implements OnInit {
 	@Input() isShowMore?:boolean = true;
 	@Output() onMoreClick = new EventEmitter();
 	POSTER_URL = POSTER_URL;
-	constructor(public NavController: NavController) {
+	constructor(public navController: NavController) {
 		
 	}
 	
 	//路由跳转
 	navigate(id){
-		this.NavController.navigate([`/article/detail/${id}`])
+		this.navController.navigate([`/article/detail/${id}`])
 	}
 	ngOnInit() {
 	}

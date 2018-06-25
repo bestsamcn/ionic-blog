@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
-import { GlobalService } from '../providers/global.service';
+import { GlobalService } from '../providers/global';
 
 @Injectable()
 export class AjaxInterceptor implements HttpInterceptor {
