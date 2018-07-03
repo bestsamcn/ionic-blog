@@ -1,13 +1,12 @@
 <!-- Generated template for the TabsComponent component -->
 <div class="best-tabs">
-	<div class="best-tabsbar">
-		<a class="best-tabbar-btn active">全部</a>
-		<a class="best-tabbar-btn">前端</a>
-		<a class="best-tabbar-btn">后台</a>
+	<div class="best-tabsbar" #toolbar >
+		<a class="best-tabbar-btn" *ngFor="let item of globalService.categoryList">{{item.name}}</a>
+		
 		<span class="best-tabsbar-line"></span>
 	</div>
 	<div class="best-tabs-content">
-		<ion-slides [pager]="false">
+		<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()">
 		  <ion-slide style="background-color: green">
 		    <h2>Slide 1</h2>
 		  </ion-slide>

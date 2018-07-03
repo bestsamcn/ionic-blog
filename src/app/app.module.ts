@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AjaxInterceptor } from '../interceptor';
 //services
 import { GlobalService } from '../providers/global';
+import { HomeService } from '../providers/home';
 import { RequestService } from '../providers/request';
 
 
@@ -42,6 +43,7 @@ import { RequestService } from '../providers/request';
             multi: true,
         },
         GlobalService,
+        HomeService,
         RequestService
         
     ]

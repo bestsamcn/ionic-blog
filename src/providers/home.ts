@@ -10,6 +10,7 @@ export class HomeService {
 	public articleList = [];
     constructor(public request: RequestService, public globalService: GlobalService) {
 		this.getHotWordList();
+		this.getCategoryList();
 		this.getArticleList(1)
     }
 	
@@ -24,8 +25,9 @@ export class HomeService {
     }
 
     //获取分类列表
-	getCategoryList(){
-		return this.request.get({url:'/article/getDiffArticle', params:{type:1, pageIndex:1, pageSize:4}});
+	async getCategoryList(){
+		let res:any = await this.request.get({url:'/category/getList', params:{}});
+		this.globalService.setCategoryList(res.data);
 	}
 
 	//获取标签列表

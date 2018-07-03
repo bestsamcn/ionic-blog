@@ -3,14 +3,12 @@
 }
 .best-tabs .best-tabsbar{
 	height:40px;
-	display:flex;
-	align-items:center;
-	justify-content:start;
 	position:relative;
 }
 .best-tabs .best-tabsbar a{
-	display:block;
+	display:inline-block;
 	height:40px;
+	float:left;
 	padding:0 10px;
 	color:#2b4356;
 	line-height:40px;

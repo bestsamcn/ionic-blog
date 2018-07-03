@@ -36,6 +36,8 @@ Tool.setCookie = function(k, v, d) {
     document.cookie = k + '=' + v + expire;
 }
 
+Tool.delay = (t:any)=>new Promise(resolve=>setTimeout(resolve, t));
+
 /**
  * 获取cookie
  * @param {string} k 键名

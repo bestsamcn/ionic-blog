@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import $$ from '../utils';
+import { category } from '../models/index';
 
 @Injectable()
 export class GlobalService {
@@ -10,6 +11,7 @@ export class GlobalService {
     public isLoading: boolean = false;
     public toastMessage: string = '';
     public hotWordList = [];
+    public categoryList = [];
     public isMenuVisible = false
     constructor() {
         this.getLocalToken();
@@ -50,6 +52,12 @@ export class GlobalService {
     setHotWordList(hotWordList: Array < any > ) {
         this.hotWordList = hotWordList;
     }
+
+    //获取分类
+   setCategoryList(categoryList: Array<any>){
+        this.categoryList = categoryList;
+    }
+ 
 
     //设置手机菜单显示隐藏
     setMenuVisible() {

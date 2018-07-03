@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+import { GlobalService } from '../../providers/global';
 
 
 @Component({
@@ -6,7 +8,17 @@ import { Component } from '@angular/core';
   	templateUrl: 'tabs.html'
 })
 export class TabsComponent {
-  	constructor() {
-    	console.log('Hello TabsComponent Component');
+	@ViewChild('slidesContent') slidesContent:Slides;
+	@ViewChild('toolbar') toolbar:any;
+	public slideIndex:number;
+  	constructor(public globalService: GlobalService) {
+    	console.log(globalService);
+  	}
+  	onSlideDrag(e){
+  		console.log(this.toolbar.nativeElement)
+  	}
+  	onSlideChanged(e){
+  		console.log(this.slidesContent.getActiveIndex())
+  		
   	}
 }
