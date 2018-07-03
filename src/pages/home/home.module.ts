@@ -3,7 +3,6 @@ import { IonicModule } from 'ionic-angular';
 
 import { HomePage } from './home';
 
-import { ArticleComponent } from '../../components/article/article';
 import { ComponentsModule } from '../../components/components.module';
 import { SuperTabsModule, SuperTabsController } from 'ionic2-super-tabs';
 
@@ -21,8 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 		SuperTabsModule
 	],
 	entryComponents:[
-		HomePage,
-		ArticleComponent
+		HomePage
 	],
 	exports: [
 		HomePage

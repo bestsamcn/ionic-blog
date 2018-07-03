@@ -1,0 +1,35 @@
+.best-tabs {
+	height:100%;
+}
+.best-tabs .best-tabsbar{
+	height:40px;
+	display:flex;
+	align-items:center;
+	justify-content:start;
+	position:relative;
+}
+.best-tabs .best-tabsbar a{
+	display:block;
+	height:40px;
+	padding:0 10px;
+	color:#2b4356;
+	line-height:40px;
+}
+.best-tabs .best-tabsbar a.active{
+	color:#1abc9c;
+}
+.best-tabs .best-tabsbar .best-tabsbar-line{
+	position:absolute;
+	height:2px;
+	background:#1abc9c;
+	left:0;
+	bottom:0;
+	transform:translate3d(0,0,0);
+	display:block;
+	width:50px;
+	z-index:10;
+}
+
+.best-tabs .best-tabs-content{
+	height:calc(100% - 40px);
+}
