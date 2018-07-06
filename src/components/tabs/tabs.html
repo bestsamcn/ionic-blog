@@ -1,15 +1,12 @@
 <!-- Generated template for the TabsComponent component -->
 <div class="best-tabs">
-	<div class="best-tabsbar" id="scroll" scroll  #toolbar>
-		<ul>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
-		</ul>
-		<span class="best-tabsbar-line"></span>
+	<div  class="best-tabs-header" id="scroll">
+		<div class="best-tabsbar">
+			<ul>
+				<li *ngFor="let item of globalService.categoryList; let i = index;" (click)="onTabClick(i)">{{item.name}}</li>
+			</ul>
+			<span class="best-tabsbar-line" [ngStyle]="{'left':slideIndex*80+'px'}"></span>
+		</div>
 	</div>
 	<div class="best-tabs-content">
 		<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()">

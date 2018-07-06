@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RequestService } from './request';
 import { PAGE_SIZE } from '../config/index';
 import { GlobalService } from './global';
+import { category } from '../config/data';
 
 @Injectable()
 export class HomeService {
@@ -26,8 +27,9 @@ export class HomeService {
 
     //获取分类列表
 	async getCategoryList(){
-		let res:any = await this.request.get({url:'/category/getList', params:{}});
-		this.globalService.setCategoryList(res.data);
+		// let res:any = await this.request.get({url:'/category/getList', params:{}});
+		console.log(category)
+		this.globalService.setCategoryList(category.data);
 	}
 
 	//获取标签列表

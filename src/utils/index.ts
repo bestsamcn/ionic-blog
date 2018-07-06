@@ -648,7 +648,7 @@ var FPS = {
 *@example toScrollHeight(300,document.getElementId('obj'))
 */
 Tool.toScrollHeight = function(iTarget,obj){
-    var that =this;
+    var that:any =this;
     var iTimer = null;
     var b = 0;
     //不能放在scroll时间里，否则无滚动，不能点击
