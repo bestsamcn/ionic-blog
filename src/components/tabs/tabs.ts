@@ -1,15 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { GlobalService } from '../../providers/global';
-
+import IScroll from '../../assets/libs/iscroll';
 
 @Component({
   	selector: 'tabs',
   	templateUrl: 'tabs.html'
 })
-export class TabsComponent {
+export class TabsComponent implements OnInit{
 	@ViewChild('slidesContent') slidesContent:Slides;
-	@ViewChild('toolbar') toolbar:any;
+	@ViewChild('toolbar') toolbar:IScroll;
 	public slideIndex:number;
   	constructor(public globalService: GlobalService) {
     	console.log(globalService);
@@ -21,4 +21,12 @@ export class TabsComponent {
   		console.log(this.slidesContent.getActiveIndex())
   		
   	}
+    ionViewDidLoad(){
+      console.log(document.getElementById('toolbar'));
+      let myScroll = new IScroll('#toolbar')
+    }
+    ngOnInit(){
+      console.log(document.getElementById('toolbar'));
+      let myScroll = new IScroll('#toolbar')
+    }
 }
