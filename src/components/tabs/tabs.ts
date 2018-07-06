@@ -4,7 +4,7 @@ import { GlobalService } from '../../providers/global';
 
 declare let IScroll:any;
 
-// let clientWidth:number = document.documentElement.clientWidth;
+let clientWidth:number = document.documentElement.clientWidth;
 @Component({
   	selector: 'tabs',
   	templateUrl: 'tabs.html'
@@ -27,8 +27,10 @@ export class TabsComponent implements OnInit, DoCheck{
     if(index < 0) index = 0;
     this.slideIndex = index;
     if(index == 0) return;
+    let dis:any = clientWidth -(-index*80+80+this.globalService.categoryList.length*80);
+    console.log(-index*80+80+this.globalService.categoryList.length*80, clientWidth, dis)
+    if(-index*80+80+this.globalService.categoryList.length*80<clientWidth) return;
 
-    if((this.globalService.categoryList.length*80-index*80)<80) return;
     this.iscroll.scrollTo(-index*80+80, 0, 300)
 		
 	}
