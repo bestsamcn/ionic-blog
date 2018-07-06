@@ -6,6 +6,7 @@ import { ArticleComponent } from './article/article';
 import { PipesModule } from '../pipes/pipes.module';
 import { TabsComponent } from './tabs/tabs';
 
+import { Scroll } from '../directives/directive';
 
 //布局模块
 @NgModule({
@@ -13,7 +14,8 @@ import { TabsComponent } from './tabs/tabs';
 		HeaderComponent,
 		FaComponent,
     	ArticleComponent,
-	    TabsComponent
+	    TabsComponent,
+	    Scroll
     ],
 	imports: [
 		IonicModule.forRoot(HeaderComponent),

@@ -22,11 +22,7 @@ export class TabsComponent implements OnInit{
   		
   	}
     ionViewDidLoad(){
-      console.log(document.getElementById('toolbar'));
-      let myScroll = new IScroll('#toolbar')
     }
     ngOnInit(){
-      console.log(document.getElementById('toolbar'));
-      let myScroll = new IScroll('#toolbar')
     }
 }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Fa } from './directive/directive';
+import { Fa, Scroll } from './directive';
 @NgModule({
-	declarations: [Fa],
+	declarations: [Fa, Scroll],
 	imports: [],
-	exports: [Fa]
+	exports: [Fa, Scroll]
 })
 export class DirectivesModule {}
