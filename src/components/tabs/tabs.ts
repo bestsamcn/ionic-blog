@@ -18,8 +18,8 @@ export class TabsComponent implements OnInit, DoCheck{
 	public slideIndex:number;
 	constructor(public globalService: GlobalService) {
 	}
-	onSlideDrag(e){
-	}
+
+  //滑动完毕
 	onSlideChanged(e){
     let disX:number = 720-(Math.abs(this.iscroll.x)+clientWidth);
     
@@ -49,7 +49,7 @@ export class TabsComponent implements OnInit, DoCheck{
 
   //页签点击
   onTabClick(index){
-    this.slidesContent.slideTo(index, 300);
+    this.slidesContent.slideTo(index, 0);
   }
 
   //更新
@@ -60,7 +60,6 @@ export class TabsComponent implements OnInit, DoCheck{
     }
   }
 
-  //查看
 
   //初始化
   ngOnInit(){
