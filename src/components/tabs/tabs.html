@@ -1,19 +1,23 @@
 <!-- Generated template for the TabsComponent component -->
+<ion-content>
 <div class="best-tabs">
 	<div  class="best-tabs-header" id="scroll">
 		<div class="best-tabsbar">
 			<ul>
-				<li *ngFor="let item of globalService.categoryList; let i = index;" (click)="onTabClick(i)">{{item.name}}</li>
+				<li *ngFor="let item of homeService.categoryArticleList; let i = index;" (click)="onTabClick(i, item)">{{item.name}}</li>
 			</ul>
 			<span class="best-tabsbar-line" [ngStyle]="{'left':slideIndex*80+'px'}"></span>
 		</div>
 	</div>
 	<div class="best-tabs-content">
 		<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()">
-		  <ion-slide style="background-color: green" *ngFor="let item of globalService.categoryList">
-		    <h2>{{item.name}}</h2>
+		  <ion-slide style="background-color: green" *ngFor="let item of homeService.categoryArticleList">
+		  	
+		    <article [articleList]="item.articleList"></article>
+		   
 		  </ion-slide>
 		</ion-slides>
 	</div>
 </div>
+ </ion-content>
 <!-- <li class="best-tabbar-btn" *ngFor="let item of globalService.categoryList">{{item.name}}</li> -->

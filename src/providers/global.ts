@@ -55,7 +55,7 @@ export class GlobalService {
 
     //获取分类
    setCategoryList(categoryList: Array<any>){
-        categoryList.unshift({name:'全部', _id:1, value:'all'})
+        
         this.categoryList = categoryList;
     }
  

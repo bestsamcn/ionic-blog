@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, DoCheck } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { GlobalService } from '../../providers/global';
+import { HomeService } from '../../providers/home';
 
 declare let IScroll:any;
 
@@ -16,7 +17,8 @@ export class TabsComponent implements OnInit, DoCheck{
   maxLeft:any;
 	@ViewChild('slidesContent') slidesContent:Slides;
 	public slideIndex:number;
-	constructor(public globalService: GlobalService) {
+	constructor(public globalService: GlobalService, public homeService: HomeService) {
+    console.log(homeService, 'ffffffffffff')
 	}
 
   //滑动完毕
