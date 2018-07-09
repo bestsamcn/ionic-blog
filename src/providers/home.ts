@@ -5,7 +5,9 @@ import { GlobalService } from './global';
 import { category } from '../config/data';
 
 interface Params{
-	pageIndex:number,
+	pageIndex?:number,
+	currentCategoryIndex:number,
+	isRefreshing?:boolean,
 	pageSize?:number, 
 	category?:string
 }
@@ -27,16 +29,59 @@ export class HomeService {
 
     //获取文章列表
     getArticleList(params: Params){
-    	params.pageSize = this.pageSize;
-		return this.request.get({url:'/article/getList', params});
+    	return new Promise(async (resolve, reject)=>{
+    		if(!this.categoryArticleList.length) return;
+	    	let { currentCategoryIndex, isRefreshing } = params;
+
+	    	//请求中返回
+	    	if(this.categoryArticleList[currentCategoryIndex].isRefreshing || this.categoryArticleList[currentCategoryIndex].isMoring) return;
+	    	this.categoryArticleList[currentCategoryIndex].isRefreshing = isRefreshing;
+	    	this.categoryArticleList[currentCategoryIndex].isMoring = !isRefreshing;
+
+	    	//缓存当前页码
+	    	let _pageIndex:number = this.categoryArticleList[currentCategoryIndex].pageIndex;
+	    	if(isRefreshing) this.categoryArticleList[currentCategoryIndex].pageIndex = 1;
+	    	if(!isRefreshing) params.pageIndex = this.categoryArticleList[currentCategoryIndex].pageIndex + 1;
+	    	let category = this.categoryArticleList[currentCategoryIndex].name;
+	    	params = {...params, category, pageSize:this.pageSize};
+	    	try{
+
+	    		let res:any = await this.request.get({url:'/article/getList', params});
+				this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
+				this.categoryArticleList[currentCategoryIndex].isMoring = false;
+				this.categoryArticleList[currentCategoryIndex].total = res.total;
+				if(params.pageIndex* this.pageSize >= res.total){
+					console.log('false')
+					this.categoryArticleList[currentCategoryIndex].isMore = false;
+				}else{
+					this.categoryArticleList[currentCategoryIndex].isMore = true;
+				}
+				if(!!isRefreshing){
+					console.log('refresh')
+					this.categoryArticleList[currentCategoryIndex].articleList = res.data;
+				}
+				if(!isRefreshing){
+					console.log('loadMore')
+					this.categoryArticleList[currentCategoryIndex].articleList = this.categoryArticleList[currentCategoryIndex].articleList.concat(res.data);
+					this.categoryArticleList[currentCategoryIndex].pageIndex = params.pageIndex;
+				}
+				
+				return resolve();
+	    	}catch(e){
+	    		this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
+				this.categoryArticleList[currentCategoryIndex].isMoring = false;
+				this.categoryArticleList[currentCategoryIndex].pageIndex = _pageIndex;
+	    		return reject();
+	    	}
+    	});
     }
 
     //获取分类列表
-	async getCategoryList(){
+	getCategoryList(){
 		// let res:any = await this.request.get({url:'/category/getList', params:{}});
 		console.log(category);
 		let categoryList:Array<any> = category.data;
-		categoryList.unshift({name:'全部', _id:1, value:'all'})
+		categoryList.unshift({name:'', category:'全部'})
 		categoryList.map(item=>{
 			let _item:any = {};
 			//后台返回的分类都是有name的，否则就是自定义的分类了
@@ -44,13 +89,13 @@ export class HomeService {
 			_item.name = item.name;
 			_item.pageIndex = 1;
 			_item.total = PAGE_SIZE+1;
-			_item.isRefreshing = true;
+			_item.isRefreshing = false;
 			_item.isMoring = false;
+			_item.isMore = true;
 			_item.articleList = []
 			this.categoryArticleList.push(_item)
 		});
-		let res:any = await this.getArticleList({pageIndex:1});
-		this.categoryArticleList[0].articleList = res.data;
+		this.getArticleList({isRefreshing:true, currentCategoryIndex:0});
 		this.globalService.setCategoryList(categoryList);
 	}
 

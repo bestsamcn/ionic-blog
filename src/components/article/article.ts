@@ -8,6 +8,7 @@ import { GlobalService } from '../../providers/global';
 })
 export class ArticleComponent implements OnInit {
 	_articleList:Array<object> = [];
+	_isMore:boolean = true;
 	@Input() 
 	get articleList():Array<object>{
 		return this._articleList;
@@ -15,9 +16,16 @@ export class ArticleComponent implements OnInit {
 	set articleList(value:Array<object>){
 		this._articleList = value;
 	}
-	@Input() isMore?:boolean = false;
+	@Input()
+	get isMore():boolean{
+		return this._isMore;
+	}
+	set isMore(value:boolean){
+		console.log(value, 'ddddddddddd');
+		this._isMore = value;
+	}
 	@Input() isShowMore?:boolean = true;
-	@Output() onMoreClick = new EventEmitter();
+	@Output() onLoadMore?:any = new EventEmitter();
 	@Output() onRefresh?:any = new EventEmitter();
 	POSTER_URL = POSTER_URL;
 	constructor(public globalService: GlobalService) {
@@ -26,7 +34,13 @@ export class ArticleComponent implements OnInit {
 
 	//下拉刷新
 	onRefreshCall($event){
-		this.onRefresh && this.onRefresh.emit($event);
+		!!this.onRefresh && this.onRefresh.emit($event);
+	}
+
+	//上拉加载
+	onLoadMoreCall($event){
+		console.log($event, 'fffffffffffff')
+		!!this.onLoadMore && this.onLoadMore.emit($event);
 	}
 	
 	//路由跳转

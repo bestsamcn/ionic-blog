@@ -65,6 +65,16 @@ export class TabsComponent implements OnInit, DoCheck {
         }
     }
 
+    //获取数据
+    async getAritlceList(evt:any, isRefreshing:boolean, currentCategoryIndex:number){
+        try{
+            await this.homeService.getArticleList({isRefreshing, currentCategoryIndex});
+            evt.complete();
+        }catch(err){
+            console.log(err, 'getAritlceList error')
+            evt.complete();
+        }
+    }
 
     //初始化
     ngOnInit() {

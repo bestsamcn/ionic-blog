@@ -1,10 +1,9 @@
 <ion-content>
      <ion-refresher (ionRefresh)="onRefreshCall($event)"> 
         <ion-refresher-content
-            pullingIcon="arrow-dropdown"
-            pullingText="下拉刷新"
+            pullingIcon="arrow-round-down"
             refreshingSpinner="circles"
-            refreshingText="刷新..."> 
+        > 
         </ion-refresher-content>
     </ion-refresher>
     <div class="article" >
@@ -30,10 +29,11 @@
             </div>
         </div>
     </div>
-    <ion-infinite-scroll> 
+    <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="_isMore" threshold="50px"> 
        <ion-infinite-scroll-content
-        loadingSpinner="bubbles"
-        loadingText="加载中..."> 
+            loadingSpinner="bubbles"
+            loadingText="加载中..."
+        > 
         </ion-infinite-scroll-content> 
     </ion-infinite-scroll>
 </ion-content>

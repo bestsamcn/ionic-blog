@@ -2,7 +2,7 @@
 	<div class="best-tabs-header" id="scroll">
 		<div class="best-tabsbar">
 			<ul>
-				<li *ngFor="let item of homeService.categoryArticleList; let i = index;" (click)="onTabClick(i, item)">{{item.name}}</li>
+				<li *ngFor="let item of homeService.categoryArticleList; let i = index;" (click)="onTabClick(i, item)">{{item.category}}</li>
 			</ul>
 			<span class="best-tabsbar-line" [ngStyle]="{'left':slideIndex*80+'px'}"></span>
 		</div>
@@ -12,8 +12,15 @@
 	<div class="best-tabs">
 		<div class="best-tabs-content">
 			<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()">
-			  <ion-slide style="background-color: green" *ngFor="let item of homeService.categoryArticleList">
-			    <article class="article-list" [articleList]="item.articleList"></article>
+			  <ion-slide style="background-color: green" *ngFor="let item of homeService.categoryArticleList; let i = index;">
+			    	<article 
+			    		class="article-list" 
+			    		[articleList]="item.articleList" 
+			    		(onRefresh)="getAritlceList($event, true, i)"
+			    		(onLoadMore)="getAritlceList($event, false, i)"
+			    		[isMore]= "item.isMore"
+			    	>
+			    	</article>
 			  </ion-slide>
 			</ion-slides>
 		</div>
