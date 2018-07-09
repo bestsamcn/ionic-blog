@@ -10,7 +10,6 @@ export class FaComponent {
 	@Input() size:number;
 	@Input() color:string;
 	constructor() {
-		console.log('Hello FaComponent Component');
 	}
 
 }

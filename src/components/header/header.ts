@@ -11,7 +11,6 @@ export class HeaderComponent {
 	text: string;
 	@Input() title:string;
 	constructor(public NavController:NavController) {
-		console.log('Hello HeaderComponent Component');
 		this.text = 'Hello World';
 	}
 

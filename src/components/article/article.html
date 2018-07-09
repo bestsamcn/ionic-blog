@@ -1,12 +1,11 @@
 <ion-content>
-     <ion-refresher> 
+     <ion-refresher (ionRefresh)="onRefreshCall($event)"> 
         <ion-refresher-content
             pullingIcon="arrow-dropdown"
             pullingText="下拉刷新"
             refreshingSpinner="circles"
             refreshingText="刷新..."> 
         </ion-refresher-content>
-
     </ion-refresher>
     <div class="article" >
         <div class="item" (click)="navigate(item._id)" [ngClass]="{'has-right':!!item.poster && !globalService.isMobile}" *ngFor="let item of articleList">
