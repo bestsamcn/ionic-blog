@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { ComponentsModule } from '../../components/components.module';
 import { SearchPage } from './search';
 import { SearchService } from '../../providers/search'
+import { SearchResultPageModule } from './result/result.module';
 
 @NgModule({
 	declarations: [
@@ -10,7 +11,8 @@ import { SearchService } from '../../providers/search'
 	],
 	imports: [
 		IonicPageModule.forChild(SearchPage),
-		ComponentsModule
+		ComponentsModule,
+		SearchResultPageModule
 	],
 	entryComponents:[
 		SearchPage

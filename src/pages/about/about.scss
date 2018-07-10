@@ -64,3 +64,8 @@ page-about {
     width:100%;
     display: block;
 }
+@media screen and (max-width: 320px) {
+    .about .main .info-box{
+        height:440px;
+    }
+}

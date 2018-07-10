@@ -1,0 +1,23 @@
+<ion-header>
+  	<ion-navbar>
+    	<ion-searchbar 
+        [(ngModel)]="searchService.keyword"
+        (ionInput)="onKeywordChange($event)"
+    		showCancelButton 
+    		animated
+    		placeholder='请输入关键字'
+    		cancelButtonText='取消'
+    	>
+		</ion-searchbar>
+  	</ion-navbar>
+</ion-header>
+<ion-content>
+	<article
+      class="article-list" 
+      [articleList]="searchService.articleList" 
+      (onRefresh)="getAritlceList($event, true)"
+      (onLoadMore)="getAritlceList($event, false)"
+      [isMore]= "searchService.isMore"
+    >
+    </article>
+</ion-content>

@@ -13,7 +13,7 @@
 	<div class="hot-word">
 		<h4 class="color-black font-14 font-bold"><ion-icon name="flame"></ion-icon>：热门搜索</h4>
 		<div class="hot-word-list">
-			<a class="hot-wrod-list-tag" *ngFor="let item of searchService.hotWordList">{{item.name}}</a>
+			<a class="hot-wrod-list-tag" (click)="goResultPage(item.name)" *ngFor="let item of searchService.hotWordList">{{item.name}}</a>
 		</div>
 	</div>
 </ion-content>
