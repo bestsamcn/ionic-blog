@@ -1,5 +1,18 @@
-
+<ion-header>
+	<header></header>
+</ion-header>
 
 <ion-content padding>
-	<p>sdffffffffffffffff</p>
+	<div class="message">
+		<h2 class="color-black font-bold font-14 margin-top-20">CONTACT</h2>
+		<div class="msg-form">
+			<h4 class="color-black font-14 margin-top-20">Name</h4>
+			<input type="text" [(ngModel)]="form.name">
+			<h4 class="color-black font-14 margin-top-20">Email</h4>
+			<input type="text" [(ngModel)]="form.email">
+			<h4 class="color-black font-14 margin-top-20">Message</h4>
+			<textarea type="textarea" resize="false" [(ngModel)]="form.content"></textarea>
+			<button class="button con-share-alt" type="info" (click)="postMessage()">发送</button>
+		</div>
+	</div>
 </ion-content>

@@ -107,6 +107,9 @@ button,input,select{
     border:1px solid #ddd;
     background:none;
 }
+.font-bold{
+    font-weight:bold;
+}
 .font-12 {
     font-size: 12px;
 }
@@ -196,6 +199,10 @@ button,input,select{
 }
 .margin-top-15{
     margin-top:15px;
+}
+
+.margin-top-20{
+    margin-top:20px !important;
 }
 .margin-bottom-10{
     margin-bottom: 10px;
