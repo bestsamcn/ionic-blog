@@ -4,28 +4,31 @@ import { HeaderComponent } from './header/header';
 import { FaComponent } from './fa/fa';
 import { ArticleComponent } from './article/article';
 import { PipesModule } from '../pipes/pipes.module';
+import { Clocky } from '../directives/index';
 import { TabsComponent } from './tabs/tabs';
 
-import { Scroll } from '../directives/directive';
+import { ClockComponent } from './clock/clock';
 
 //布局模块
 @NgModule({
 	declarations: [
+		Clocky,
 		HeaderComponent,
 		FaComponent,
     	ArticleComponent,
 	    TabsComponent,
-	    Scroll
+    	ClockComponent
     ],
 	imports: [
 		IonicModule.forRoot(HeaderComponent),
-		PipesModule
+		PipesModule,
 	],
 	exports: [
 		HeaderComponent,
 		FaComponent,
     	ArticleComponent,
-    	TabsComponent
+    	TabsComponent,
+    	ClockComponent
     ]
 })
 export class ComponentsModule {}

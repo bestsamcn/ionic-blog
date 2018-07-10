@@ -1,6 +1,29 @@
 import { Directive, ElementRef, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 declare var IScroll:any;
+declare var Clock:any;
+
+/**
+ * sidebarScroll 侧边栏滚动指令
+ */
+@Directive({ selector: '[clocky]' })
+export class Clocky implements OnChanges, OnDestroy, OnInit{
+    constructor(public el: ElementRef){
+        console.log(el)
+    }
+    ngOnChanges(){
+        setTimeout(()=>{
+            Clock.init(this.el.nativeElement);
+        },500)
+    }
+    ngOnDestroy(){
+       clearInterval(Clock._timer)
+    }
+    ngOnInit(){
+        Clock.init(this.el.nativeElement);
+    }
+    
+}
 
 @Directive({
 	selector: '[fa]'
@@ -11,7 +34,6 @@ export class Fa {
 	}
 
 }
-
 
 
 /**

@@ -7,7 +7,6 @@ import { TabsPage } from './tabs/tabs';
 
 import { HomeModule } from './home/home.module';
 import { ComponentsModule } from '../components/components.module';
-import { SuperTabsModule, SuperTabsController } from 'ionic2-super-tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -23,7 +22,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 		IonicModule,
 		HomeModule,
 		ComponentsModule, 
-		SuperTabsModule
 	],
 	entryComponents:[
 		TabsPage,
@@ -36,8 +34,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 		TabsPage
     ],
     providers:[
-		StatusBar,
-		SuperTabsController
+		StatusBar
     ]
 })
 export class PagesModule {}

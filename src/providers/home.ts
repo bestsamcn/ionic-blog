@@ -3,6 +3,8 @@ import { RequestService } from './request';
 import { PAGE_SIZE } from '../config/index';
 import { GlobalService } from './global';
 import { category } from '../config/data';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { Platform } from 'ionic-angular';
 
 interface Params{
 	pageIndex?:number,
@@ -15,9 +17,15 @@ interface Params{
 @Injectable()
 export class HomeService {
 	private pageSize:number = PAGE_SIZE;
+
 	//公用的文章列表，防止重复请求
 	public categoryArticleList:Array<any> = [];
-    constructor(public request: RequestService, public globalService: GlobalService) {
+    constructor(
+    	public request: RequestService, 
+    	public globalService: GlobalService,
+    	public nativeStorage: NativeStorage,
+    	public platform:Platform
+    ){
 		this.getHotWordList();
 		this.getCategoryList();
     }
@@ -50,12 +58,15 @@ export class HomeService {
 				this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
 				this.categoryArticleList[currentCategoryIndex].isMoring = false;
 				this.categoryArticleList[currentCategoryIndex].total = res.total;
+
+				//isMore
 				if(params.pageIndex* this.pageSize >= res.total){
-					console.log('false')
 					this.categoryArticleList[currentCategoryIndex].isMore = false;
 				}else{
 					this.categoryArticleList[currentCategoryIndex].isMore = true;
 				}
+
+
 				if(!!isRefreshing){
 					console.log('refresh')
 					this.categoryArticleList[currentCategoryIndex].articleList = res.data;
@@ -65,19 +76,23 @@ export class HomeService {
 					this.categoryArticleList[currentCategoryIndex].articleList = this.categoryArticleList[currentCategoryIndex].articleList.concat(res.data);
 					this.categoryArticleList[currentCategoryIndex].pageIndex = params.pageIndex;
 				}
-				
+				if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 				return resolve();
 	    	}catch(e){
+
+	    		console.log(e, 'HomeService getArticleList error');
+
 	    		this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
 				this.categoryArticleList[currentCategoryIndex].isMoring = false;
 				this.categoryArticleList[currentCategoryIndex].pageIndex = _pageIndex;
+				if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 	    		return reject();
 	    	}
     	});
     }
 
     //获取分类列表
-	getCategoryList(){
+	async getCategoryList(){
 		// let res:any = await this.request.get({url:'/category/getList', params:{}});
 		console.log(category);
 		let categoryList:Array<any> = category.data;
@@ -95,6 +110,7 @@ export class HomeService {
 			_item.articleList = []
 			this.categoryArticleList.push(_item)
 		});
+
 		this.getArticleList({isRefreshing:true, currentCategoryIndex:0});
 		this.globalService.setCategoryList(categoryList);
 	}

@@ -21,7 +21,6 @@ export class ArticleComponent implements OnInit {
 		return this._isMore;
 	}
 	set isMore(value:boolean){
-		console.log(value, 'ddddddddddd');
 		this._isMore = value;
 	}
 	@Input() isShowMore?:boolean = true;

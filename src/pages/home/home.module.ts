@@ -4,7 +4,6 @@ import { IonicModule } from 'ionic-angular';
 import { HomePage } from './home';
 
 import { ComponentsModule } from '../../components/components.module';
-import { SuperTabsModule, SuperTabsController } from 'ionic2-super-tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -16,8 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
     ],
 	imports: [
 		IonicModule,
-		ComponentsModule, 
-		SuperTabsModule
+		ComponentsModule,
 	],
 	entryComponents:[
 		HomePage
@@ -26,8 +24,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 		HomePage
     ],
     providers:[
-		StatusBar,
-		SuperTabsController
+		StatusBar
     ]
 })
 export class HomeModule {}

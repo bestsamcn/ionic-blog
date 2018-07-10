@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 //interceptor
 import { AjaxInterceptor } from '../interceptor';
@@ -33,6 +34,7 @@ import { RequestService } from '../providers/request';
     ],
     providers: [
         StatusBar,
+        NativeStorage,
         SplashScreen, {
             provide: ErrorHandler,
             useClass: IonicErrorHandler
