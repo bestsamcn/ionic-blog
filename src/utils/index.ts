@@ -27,9 +27,9 @@ Tool.isMobile = function() {
      * @param {number} d 天数
      */
 Tool.setCookie = function(k, v, d) {
-    var expire = '';
+    var expire:string = '';
     if (d) {
-        var date = new Date();
+        var date:any = new Date();
         date.setTime(date.getTime() + d * 24 * 60 * 60 * 1000);
         expire = ';expires=' + date.toUTCString();
     }
@@ -45,7 +45,7 @@ Tool.delay = (t:any)=>new Promise(resolve=>setTimeout(resolve, t));
  */
 Tool.getCookie = function(k) {
     //一旦检测到分号，即停止
-    var arr = document.cookie.match(new RegExp(k + '=([^;]*)'));
+    var arr:any = document.cookie.match(new RegExp(k + '=([^;]*)'));
     return arr ? arr[1] : '';
 }
 
@@ -54,14 +54,14 @@ Tool.getCookie = function(k) {
  * @param {string} k 键名
  */
 Tool.clearCookie = function(k) {
-        Tool.setCookie(k, '', -1);
-    }
-    /**
-     * 获取css样式值
-     * @param  {dom} element
-     * @param  {string} attr    属性名
-     * @return {string}
-     */
+    Tool.setCookie(k, '', -1);
+}
+/**
+ * 获取css样式值
+ * @param  {dom} element
+ * @param  {string} attr    属性名
+ * @return {string}
+ */
 Tool.getStyle = function(element: any, attr: string) {
     return window.getComputedStyle(element, null)[attr];
 }
@@ -74,13 +74,13 @@ Tool.getStyle = function(element: any, attr: string) {
  */
 let timer: any;
 Tool.moveStart = function(obj: any, json: object, fn: any): void {
-    var that = this;
+    let that = Tool;
     clearInterval(timer);
     timer = setInterval(function() {
-        var bStop = true;
-        var icur = 0;
+        var bStop:boolean = true;
+        var icur:number= 0;
         icur = parseInt(that.getStyle(obj, 'top'));
-        var iSpeed = (json['top'] - icur) / 8;
+        var iSpeed:number = (json['top'] - icur) / 8;
         // alert('iSpeed'+iSpeed)
         iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
         if (icur != json['top']) {
@@ -102,9 +102,8 @@ Tool.moveStart = function(obj: any, json: object, fn: any): void {
 *@example toScrollHeight(300,document.getElementId('obj'))
 */
 Tool.toScrollHeight = function(iTarget,obj){
-    var that:any =this;
-    var iTimer = null;
-    var b = 0;
+    var iTimer:any = null;
+    var b:number = 0;
     //不能放在scroll时间里，否则无滚动，不能点击
     if(obj !== 'undefined'){
         obj.addEventListener('click',function(){
@@ -120,7 +119,7 @@ Tool.toScrollHeight = function(iTarget,obj){
     });
     function runFn(iTarget: number, iCur?: number) {
         clearInterval(iTimer);
-        var iSpeed = 0,iCur = 0;
+        var iSpeed:number = 0,iCur:number = 0;
         iTimer = setInterval(function() {
             iCur = document.documentElement.scrollTop || document.body.scrollTop;
             //一直没想到会是这步的原因,由于放向的不同,取值会不同,ceil是为了向下滚动,为正数,floor是为了向上滚动,为负数

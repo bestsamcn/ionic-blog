@@ -21,7 +21,7 @@ import { ClockComponent } from './clock/clock';
     ],
 	imports: [
 		IonicModule.forRoot(HeaderComponent),
-		PipesModule,
+		PipesModule
 	],
 	exports: [
 		HeaderComponent,

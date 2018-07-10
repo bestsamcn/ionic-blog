@@ -26,7 +26,9 @@ import { RequestService } from '../providers/request';
         BrowserModule,
         PagesModule,
         HttpClientModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp, {
+            tabsHideOnSubPages: 'true' 
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -42,7 +44,7 @@ import { RequestService } from '../providers/request';
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AjaxInterceptor,
-            multi: true,
+            multi: true
         },
         GlobalService,
         HomeService,

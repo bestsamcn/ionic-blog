@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import $$ from '../utils';
-import { category } from '../models/index';
 
 @Injectable()
 export class GlobalService {
@@ -10,7 +9,7 @@ export class GlobalService {
     public userInfo: any = {};
     public isLoading: boolean = false;
     public toastMessage: string = '';
-    public hotWordList = [];
+    
     public categoryList = [];
     public isMenuVisible = false
     constructor() {
@@ -48,14 +47,10 @@ export class GlobalService {
         }, 2000);
     }
 
-    //获取热词列表
-    setHotWordList(hotWordList: Array < any > ) {
-        this.hotWordList = hotWordList;
-    }
+
 
     //获取分类
    setCategoryList(categoryList: Array<any>){
-        
         this.categoryList = categoryList;
     }
  

@@ -94,7 +94,6 @@ export class HomeService {
     //获取分类列表
 	async getCategoryList(){
 		// let res:any = await this.request.get({url:'/category/getList', params:{}});
-		console.log(category);
 		let categoryList:Array<any> = category.data;
 		categoryList.unshift({name:'', category:'全部'})
 		categoryList.map(item=>{
@@ -107,8 +106,8 @@ export class HomeService {
 			_item.isRefreshing = false;
 			_item.isMoring = false;
 			_item.isMore = true;
-			_item.articleList = []
-			this.categoryArticleList.push(_item)
+			_item.articleList = [];
+			this.categoryArticleList.push(_item);
 		});
 
 		this.getArticleList({isRefreshing:true, currentCategoryIndex:0});
