@@ -39,7 +39,6 @@ export class ArticleComponent implements OnInit {
 
 	//上拉加载
 	onLoadMoreCall($event){
-		console.log($event, 'fffffffffffff')
 		!!this.onLoadMore && this.onLoadMore.emit($event);
 	}
 	

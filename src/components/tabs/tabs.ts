@@ -31,6 +31,11 @@ export class TabsComponent implements OnInit, DoCheck {
         }
         if (index < 0) index = 0;
         this.slideIndex = index;
+
+        if(!this.homeService.categoryArticleList[index].articleList.length){
+           this.homeService.getArticleList({isRefreshing:true, currentCategoryIndex:this.slideIndex});
+        }
+
         if (index == 0) return;
 
         //首次溢出
