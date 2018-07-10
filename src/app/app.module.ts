@@ -27,7 +27,8 @@ import { RequestService } from '../providers/request';
         PagesModule,
         HttpClientModule,
         IonicModule.forRoot(MyApp, {
-            tabsHideOnSubPages: 'true' 
+            tabsHideOnSubPages: 'true',
+            backButtonText:''
         })
     ],
     bootstrap: [IonicApp],

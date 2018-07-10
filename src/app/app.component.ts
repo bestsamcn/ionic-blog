@@ -13,8 +13,8 @@ export class MyApp {
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
         platform.ready().then(() => {
-              statusBar.styleDefault();
-              splashScreen.hide();
+            statusBar.styleDefault();
+            splashScreen.hide();
         });
     }
 }
