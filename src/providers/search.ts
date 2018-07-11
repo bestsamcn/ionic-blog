@@ -31,7 +31,7 @@ export class SearchService {
     //获取文章列表
     getArticleList(params: Params){
         let { isRefresh, keyword } = params;
-        this.keyword = keyword;
+        this.keyword = keyword || this.keyword;
         return new Promise(async (resolve, reject)=>{
             let { pageIndex, pageSize } = this;
             let _pageIndex = pageIndex;
@@ -41,7 +41,7 @@ export class SearchService {
                 if(!isRefresh) pageIndex = pageIndex + 1;
                 this.isMoring = !isRefresh;
                 this.isRefreshing = !!isRefresh;
-                let res:any = await this.requestService.get({url:'/article/getList', params:{pageIndex, pageSize, keyword}});
+                let res:any = await this.requestService.get({url:'/article/getList', params:{pageIndex, pageSize, keyword:this.keyword}});
                 this.isMoring = false;
                 this.isRefreshing = false;
 

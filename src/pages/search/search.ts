@@ -26,4 +26,10 @@ export class SearchPage {
 	  	await this.searchService.getArticleList({isRefresh:true, keyword});
 	  	this.navCtrl.push(SearchResultPage);
 	}
+
+	ionViewDidLoad(){
+		setTimeout(()=>{
+			this.searchbar.setFocus();	
+		}, 500)
+	}
 }

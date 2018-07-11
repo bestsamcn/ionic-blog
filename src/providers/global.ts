@@ -56,7 +56,7 @@ export class GlobalService {
 
     //状态修改
     setState(obj:any){
-        Object.keys(obj).map(key=>{
+        Object.keys(obj).map((key:any)=>{
             this[key]=obj[key];
         });
     }
