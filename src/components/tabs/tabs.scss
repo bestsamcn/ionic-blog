@@ -74,6 +74,16 @@
     top: 44px;
     overflow: hidden;
 }
+#scroll-ios {
+	height: 40px;
+    z-index: 2;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 56px;
+    overflow: hidden;
+}
 
 
 #scroll .best-tabsbar {
