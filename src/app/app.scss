@@ -129,6 +129,10 @@
     content: "\F041";
 }
 
+ion-navbar.toolbar{
+    padding:0 5px;
+}
+
 @font-face {
   font-family: 'rancho';
   src: url('../../font/Rancho-Regular.ttf');

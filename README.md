@@ -7,7 +7,8 @@ Ionic-Blog 是一个基于``Angular5+Ionic3``的前后端分离的hybrid项目�
 ## 环境
 - node v6
 - npm  v4
-- angular  v5.0
+- ionic  v3.x
+- angular  v5.x
 
 ## 开发
 ```
