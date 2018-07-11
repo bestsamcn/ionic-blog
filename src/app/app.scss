@@ -112,11 +112,18 @@
 .cicon-tag:before {
     content: "\F02B";
 }
+.cicon-heart.active{
+    color:#e24c3c !important;
+}
 .cicon-heart:before {
     content: "\F004";
 }
 .cicon-edit:before {
     content: "\F044";
+}
+
+.cicon-map-marker:before {
+    content: "\F041";
 }
 
 @font-face {

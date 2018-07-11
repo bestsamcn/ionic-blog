@@ -23,4 +23,9 @@ export class ArticleService {
             }
         });
     }
+
+    //点赞文章
+    setArticleLike(id: string){
+        return this.requestService.post({url:'/article/like', params:{id}});
+    }
 }
