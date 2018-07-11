@@ -9,7 +9,7 @@ export class GlobalService {
     public userInfo: any = {};
     public isLoading: boolean = false;
     public toastMessage: string = '';
-    
+    public hotWordList: Array<any> = [];
     public categoryList = [];
     public isMenuVisible = false
     constructor() {
@@ -53,10 +53,11 @@ export class GlobalService {
    setCategoryList(categoryList: Array<any>){
         this.categoryList = categoryList;
     }
- 
 
-    //设置手机菜单显示隐藏
-    setMenuVisible() {
-        this.isMenuVisible = !this.isMenuVisible;
+    //状态修改
+    setState(obj:any){
+        Object.keys(obj).map(key=>{
+            this[key]=obj[key];
+        });
     }
 }

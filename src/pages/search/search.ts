@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Searchbar } from 'ionic-angular';
 
 import { SearchService } from '../../providers/search';
+import { GlobalService } from '../../providers/global';
 import { SearchResultPage } from './result/result'; 
 
 
@@ -15,9 +16,9 @@ export class SearchPage {
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		public searchService: SearchService
+		public searchService: SearchService,
+		public globalService: GlobalService
 	){
-		console.log(this.searchService, 'ddddddddddd')
 	}
 
 	//跳转结果页

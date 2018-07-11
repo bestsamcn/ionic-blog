@@ -11,7 +11,6 @@ interface Params{
 
 @Injectable()
 export class SearchService {
-	public hotWordList:Array<object> = [];
     public keyword:string = '';
     public articleList:Array<object> = [];
     public total:number = PAGE_SIZE+1;
@@ -21,18 +20,7 @@ export class SearchService {
     public isMoring:boolean = false;
     public isMore:boolean = true
     constructor(public requestService: RequestService) {
-        this.getHotWordList();
-    }
-
-
-    //留言提交
-    async getHotWordList(){
-    	try{
-    		let res:any = await this.requestService.get({url:'/hot/getList', params:{}});
-    		this.hotWordList = res.data;
-    	}catch(e){
-    		console.log('SearchService getHotWordList error')
-    	}
+        
     }
 
     //设置关键字

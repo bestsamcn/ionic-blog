@@ -16,7 +16,7 @@ import { AjaxInterceptor } from '../interceptor';
 import { GlobalService } from '../providers/global';
 import { HomeService } from '../providers/home';
 import { RequestService } from '../providers/request';
-
+import { InitialService } from '../providers/initial';
 
 @NgModule({
     declarations: [
@@ -52,7 +52,8 @@ import { RequestService } from '../providers/request';
         },
         GlobalService,
         HomeService,
-        RequestService
+        RequestService,
+        InitialService
         
     ]
 })
