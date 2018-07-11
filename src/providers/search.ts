@@ -35,6 +35,11 @@ export class SearchService {
     	}
     }
 
+    //设置关键字
+    setKeyword(keyword:string){
+        this.keyword = keyword;
+    }
+
     //获取文章列表
     getArticleList(params: Params){
         let { isRefresh, keyword } = params;

@@ -9,15 +9,13 @@ import { SearchService } from '../../../providers/search';
     templateUrl: 'result.html'
 })
 export class SearchResultPage {
-    _keyword: string = 'FFFFFFFFFFFFFFFFF';
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public searchService: SearchService
-    ){
-        console.log(this.searchService.keyword, 'ffffffffffffffffffffffffffff')
-    }
+    ){}
 
+    //获取结果
     async getAritlceList(evt: any, isRefresh: boolean) {
         try {
             await this.searchService.getArticleList({
@@ -32,5 +30,6 @@ export class SearchResultPage {
     //输入
     onKeywordChange(evt: any) {
         this.searchService.keyword = evt.value;
+        this.searchService.setKeyword(evt.value);
     }
 }
