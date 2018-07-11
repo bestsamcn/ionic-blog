@@ -1,6 +1,6 @@
 # Ionic-Blog
 
-Ionic-Blog 是一个基于``Angular5+Ionic3``的前后端分离的hybrid项目，另有[ReactNative版本](https://github.com/bestsamcn/react-native-blog), [React版本](https://github.com/bestsamcn/react-blog)和[Vue版本](https://github.com/bestsamcn/vue-blog)。
+Ionic-Blog 是一个基于``Angular5+Ionic3``的前后端分离的hybrid项目，另有[ReactNative版本](https://github.com/bestsamcn/react-native-blog), [React版本](https://github.com/bestsamcn/react-blog), [Angular版本](https://github.com/bestsamcn/angular-blog)和[Vue版本](https://github.com/bestsamcn/vue-blog)。
 - 前端使用了Angular5+Ionic3完成
 - 后端接口利用 ``express + mongodb + redis`` 开发，后端地址[请点我](https://github.com/bestsamcn/node-blog)
 
