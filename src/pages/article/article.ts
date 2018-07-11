@@ -4,6 +4,24 @@ import { POSTER_URL, FACE_URL } from '../../config/index';
 import { ArticleService } from '../../providers/article';
 import $$ from '../../utils/index';
 
+interface Article{
+	_id: string,
+	title: string,
+	previewText: string,
+	tag: object,
+	category: object,
+	content: string,
+	lastEditTime: number,
+	poster: string,
+	__v: number,
+	pinYin: any,
+	private: number,
+	likeNum: number,
+	commentNum: number,
+	readNum: number,
+	createTime: number
+}
+
 @IonicPage()
 @Component({
 	selector: 'page-article',
@@ -12,7 +30,7 @@ import $$ from '../../utils/index';
 export class ArticlePage {
 	public POSTER_URL:string = POSTER_URL;
 	public FACE_URL:string = FACE_URL;
-	public article:object;
+	public article:Article;
 	public prevID:string;
 	public nextID:string;
 	public isLiked:boolean;
@@ -30,7 +48,6 @@ export class ArticlePage {
 	async getArticleDetail(id:string){
 		let res:any = await this.articleService.getArticleDetail(id);
 		this.article = res.curr;
-		console.log($$.getCookie(res.curr._id))
 		!!$$.getCookie(res.curr._id) && (this.isLiked = true) || (this.isLiked = false);
 		this.prevID = !!res.prev && res.prev._id || '';
 		this.nextID = !!res.next && res.next._id || '';
@@ -38,10 +55,11 @@ export class ArticlePage {
 
 	//点赞
 	async likeClick(){
-		if(!!$$.getCookie(this.article._id)) return false;
+		let id:string = !!this.article && this.article._id || '';
+		if(!id || !!$$.getCookie(id)) return false;
 		try{
-			await this.articleService.setArticleLike(this.article._id);
-			$$.setCookie(this.article._id)
+			await this.articleService.setArticleLike(id);
+			$$.setCookie(id)
 			this.article.likeNum = this.article.likeNum + 1;
 			this.isLiked = true;
 		}catch(e){
