@@ -23,7 +23,7 @@
             <div class="content markdown-body" [innerHTML]="article.content">
             </div>
             <div class="others">
-                <a href="javascript:;" (click)="navController.pop()" >返回</a>
+                <a href="javascript:;" (click)="goBack()">返回</a>
                 <a *ngIf="prevID" (click)="getArticleDetail(prevID)">前篇</a>
                 <a *ngIf="nextID" (click)="getArticleDetail(nextID)">后篇</a>
                 <a href="javascript:;" [ngClass]="{'is-liked':isLiked}">点赞</a>

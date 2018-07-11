@@ -16,6 +16,7 @@ export class AjaxInterceptor implements HttpInterceptor {
 		.mergeMap((event: HttpEvent<any>)=> { 
 			//因为这里的回调表示一旦有数据流经过就会触发，所以就算没有返回也会走到这里，所以这里不能做loading控制
 			if(event instanceof HttpResponse &&  (event.status !== 200 && event.status !== 304 || event.body.retCode !== 0)){
+
 				this.globalService.setToast(event.body.msg || '出错了');
 				return Observable.create(observer => observer.error(event));
 			}

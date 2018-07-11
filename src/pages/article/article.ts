@@ -38,6 +38,10 @@ export class ArticlePage {
 
 	}
 
+	goBack(){
+		this.navController.pop();
+	}
+
 	ionViewDidLoad() {
 
 	}
