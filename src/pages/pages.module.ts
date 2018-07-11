@@ -6,6 +6,7 @@ import { MessagePage } from './message/message';
 import { TabsPage } from './tabs/tabs';
 
 import { HomeModule } from './home/home.module';
+import { ArticlePageModule } from './article/article.module';
 import { SearchPageModule } from './search/search.module';
 import { ComponentsModule } from '../components/components.module';
 
@@ -23,7 +24,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 		IonicModule,
 		HomeModule,
 		ComponentsModule, 
-		SearchPageModule
+		SearchPageModule,
+		ArticlePageModule
 	],
 	entryComponents:[
 		TabsPage,

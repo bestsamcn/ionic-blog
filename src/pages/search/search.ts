@@ -29,7 +29,7 @@ export class SearchPage {
 
 	ionViewDidLoad(){
 		setTimeout(()=>{
-			this.searchbar.setFocus();	
+			// this.searchbar.setFocus();	
 		}, 500)
 	}
 }

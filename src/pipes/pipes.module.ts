@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DateFormatPipe, DateDescPipe, TransNumPipe, TextEllipsisPipe } from './pipe/pipe';
+import { DateFormatPipe, DateDescPipe, TransNumPipe, TextEllipsisPipe } from './pipe';
 
 //管道
 @NgModule({

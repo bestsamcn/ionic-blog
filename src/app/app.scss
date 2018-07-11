@@ -72,6 +72,52 @@
 .tabs-ios .tab-button, .tabs-md .tab-button, .tabs-ios .tab-button-icon, .tabs-md .tab-button-icon{
   color:#2b4356
 }
+.toolbar-background{
+    background:#fff;
+}
+
+[class*=" cicon-"], [class^=cicon-] {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+[class*=" cicon-"], [class^=cicon-] {
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    margin-top: 0;
+}
+
+[class*=" cicon-"]:before, [class^=cicon-]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+.cicon-calendar:before {
+    content: "\F073";
+}
+.cicon-comment:before {
+    content: "\F075";
+}
+.cicon-eye-open:before {
+    content: "\F06E";
+}
+.cicon-tag:before {
+    content: "\F02B";
+}
+.cicon-heart:before {
+    content: "\F004";
+}
+.cicon-edit:before {
+    content: "\F044";
+}
 
 @font-face {
   font-family: 'rancho';

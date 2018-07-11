@@ -1,0 +1,124 @@
+page-article {
+	.article-detail{
+	    width:100%;
+	}
+	.article-detail .main{
+	    max-width: 1000px;
+	    margin:0 auto;
+	    background:#fff;
+	    padding:10px;
+	}
+	.article-detail .main .title{
+	    width:100%;
+	}
+	.article-detail .main .title h4{
+	    font-size: 20px;
+	    text-align: left;
+	    margin:10px 0;
+	    margin-top:0;
+	}
+	.article-detail .main .title .tags{
+
+	}
+	.article-detail .main .title .info{
+	    overflow: hidden;
+	    margin:10px 0;
+	}
+	.article-detail .main .title .info span{
+	    float: left;
+	    margin-right:20px;
+	    color:#bbb;
+	    font-size: 12px;
+	}
+	.article-detail .main .title .info span:before{
+	    margin-right: 5px;
+	}
+	.article-detail .main .title .info a{
+	    float: right;
+	    color:#bbb;
+	    font-size: 12px;
+	}
+	.article-detail .main .title .info a.icon-heart.active{
+	    color:#E24C3C
+	}
+	.article-detail .main .title .info a.icon-heart:before{
+	    margin-right: 5px;
+	}
+	.article-detail .main .title .info a.icon-heart-empty:before{
+	    margin-right: 5px;
+	}
+	.article-detail .main .title .info a.active{
+	     margin-right: 5px;
+	}
+	.article-detail .main .preview{
+	    text-align: left;
+	    color: #999;
+	    line-height: 22px;
+	    margin-top: 10px;
+	    background: #F6F8FA;
+	    position: relative;
+	    padding: 10px;
+	    text-align: justify;
+	    margin-bottom: 10px;
+	    border-radius: 2px;
+	}
+	.article-detail .main .preview:before{
+	    width:4px;
+	    height:100%;
+	    position: absolute;
+	    left:0;
+	    top:0;
+	    content:'';
+	    display: block;
+	    background:#1ABC9C;
+	}
+	.article-detail .main .img{
+	    width:100%;
+	    overflow: hidden;
+	    background:#f6f6f6;
+	}
+	.article-detail .main .img img{
+	    width:100%;
+	}
+
+	.article-detail .main .others{
+	    display: -webkit-flex;
+	    display: flex;
+	    margin:30px auto; 
+	    justify-content:space-between;
+	}
+	.article-detail .main .others a{
+	    width:20%;
+	    height:30px;
+	    text-align: center;
+	    line-height: 30px;
+	    border-radius: 30px;
+	    color:#2B4356;
+	    border:1px solid #2B4356;
+	}
+	.article-detail .main .others a.is-liked{
+	    background: #2B4356;
+	    color:#fff;
+	}
+	.article-detail .main .markdown-body p{
+	    font-size: 16px !important;
+	    line-height: 1.5em;
+	}
+	.article-detail .main .content p, .article-detail .main .content p strong, .article-detail .main .content li{
+	    font-size: 16px !important;
+
+	}
+	.markdown-body>*:first-child{
+	    margin-top:20px !important;
+	}
+
+	@media screen and (min-width:768px){
+	    .article-detail .main{
+	        padding:20px;
+
+	    }
+	    .article-detail .main .title h4{
+	        font-size: 22px;
+	    }
+	}
+}

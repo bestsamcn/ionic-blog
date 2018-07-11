@@ -1,0 +1,33 @@
+<ion-header>
+ 	<ion-navbar>
+		<ion-title *ngIf="article">{{article.title}}</ion-title>
+ 	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="article-detail" *ngIf="article">
+        <div class="main">
+            <div class="title">
+                <h4 class="color-black">{{ article.title }}</h4>
+                <div class="info margin-top-10">
+                    <span class="cicon-calendar">{{article.createTime | dateFormat:'yyyy-MM-dd'}}</span>
+                    <span class="cicon-map-marker">{{article.category && article.category.name}}</span>
+                    <span class="cicon-eye-open">{{article.readNum | transNum}} Views</span>
+                    <span class="cicon-tag">{{article.tag && article.tag.name}}</span>
+                    <a href="javascript:;" (click)="likeClick()" class="cicon-heart" [ngClass]="{'active':isLiked}">{{article.likeNum | transNum}}</a>
+                </div>
+            </div>
+            <p class="preview">
+                {{article.previewText}}
+            </p>
+            <div class="content markdown-body" [innerHTML]="article.content">
+            </div>
+            <div class="others">
+                <a href="javascript:;" (click)="navController.pop()" >返回</a>
+                <a *ngIf="prevID" (click)="getArticleDetail(prevID)">前篇</a>
+                <a *ngIf="nextID" (click)="getArticleDetail(nextID)">后篇</a>
+                <a href="javascript:;" [ngClass]="{'is-liked':isLiked}">点赞</a>
+            </div>
+        </div>
+    </div>
+</ion-content>

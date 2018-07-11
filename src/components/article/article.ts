@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { POSTER_URL } from '../../config/index';
 import { GlobalService } from '../../providers/global';
+import { ArticlePage } from '../../pages/article/article';
 
 @Component({
   selector: 'article',
   templateUrl: 'article.html'
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent{
 	_articleList:Array<object> = [];
 	_isMore:boolean = true;
 	@Input() 
@@ -27,7 +29,11 @@ export class ArticleComponent implements OnInit {
 	@Output() onLoadMore?:any = new EventEmitter();
 	@Output() onRefresh?:any = new EventEmitter();
 	POSTER_URL = POSTER_URL;
-	constructor(public globalService: GlobalService) {
+	constructor(
+		public globalService: GlobalService,
+		public navController: NavController,
+		public navParams: NavParams
+	){
 		
 	}
 
@@ -42,9 +48,7 @@ export class ArticleComponent implements OnInit {
 	}
 	
 	//路由跳转
-	navigate(id){
+	goArticlePage(id:string){
+		this.navController.push(ArticlePage, {id:id});
 	}
-	ngOnInit() {
-	}
-
 }
