@@ -24,7 +24,7 @@ npm run build
 
 ```
 ## 图片
-![piture](https://github.com/bestsamcn/vue-blog/blob/master/picture/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png)
+![piture]https://github.com/bestsamcn/ionic-blog/blob/master/screenshots/view.png?raw=true)
 
 ## 预览
 - 项目总体完成，部分细节有待修改。
