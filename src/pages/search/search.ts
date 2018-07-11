@@ -22,8 +22,8 @@ export class SearchPage {
 	}
 
 	//跳转结果页
-	async goResultPage(keyword){
-	  	await this.searchService.getArticleList({isRefresh:true, keyword});
+	goResultPage(keyword){
+	  	this.searchService.getArticleList({isRefresh:true, keyword});
 	  	this.navCtrl.push(SearchResultPage);
 	}
 
