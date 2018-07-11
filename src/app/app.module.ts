@@ -40,7 +40,8 @@ import { RequestService } from '../providers/request';
     providers: [
         StatusBar,
         NativeStorage,
-        SplashScreen, {
+        SplashScreen, 
+        {
             provide: ErrorHandler,
             useClass: IonicErrorHandler
         },

@@ -37,11 +37,13 @@ export class SearchService {
 
     //获取文章列表
     getArticleList(params: Params){
+        let { isRefresh, keyword } = params;
+        this.keyword = keyword;
         return new Promise(async (resolve, reject)=>{
-            let { isRefresh, keyword } = params;
             let { pageIndex, pageSize } = this;
             let _pageIndex = pageIndex;
             try{
+                
                 if(!!isRefresh) pageIndex = 1;
                 if(!isRefresh) pageIndex = pageIndex + 1;
                 this.isMoring = !isRefresh;
@@ -60,6 +62,7 @@ export class SearchService {
                 }
                 if(!!isRefresh) this.articleList = res.data;
                 if(!isRefresh) this.articleList = this.articleList.concat(res.data);
+
                 return resolve();
             }catch(e){
                 this.pageIndex = _pageIndex;

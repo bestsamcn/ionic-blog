@@ -2,20 +2,21 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ComponentsModule } from '../../components/components.module';
 import { SearchPage } from './search';
+import { SearchResultPage } from './result/result';
 import { SearchService } from '../../providers/search'
-import { SearchResultPageModule } from './result/result.module';
 
 @NgModule({
 	declarations: [
 		SearchPage,
+		SearchResultPage
 	],
 	imports: [
 		IonicPageModule.forChild(SearchPage),
 		ComponentsModule,
-		SearchResultPageModule
 	],
 	entryComponents:[
-		SearchPage
+		SearchPage,
+		SearchResultPage
 	],
 	exports:[
 		SearchPage

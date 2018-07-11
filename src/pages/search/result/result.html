@@ -2,7 +2,7 @@
   	<ion-navbar>
     	<ion-searchbar 
         [(ngModel)]="searchService.keyword"
-        (ionInput)="onKeywordChange($event)"
+        (input)="onKeywordChange($event)"
     		showCancelButton 
     		animated
     		placeholder='请输入关键字'
