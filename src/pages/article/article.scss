@@ -4,6 +4,10 @@ page-article {
 	.article-detail{
 	    width:100%;
 	}
+
+	.article-detail .content{
+		padding-bottom:40px;
+	}
 	.article-detail .main{
 	    max-width: 1000px;
 	    margin:0 auto;
@@ -86,8 +90,17 @@ page-article {
 	.article-detail .main .others{
 	    display: -webkit-flex;
 	    display: flex;
-	    margin:30px auto; 
+	    position:fixed;
+	    left:0;
+	    bottom:0;
+	    width:100%;
+	    padding:0 10px;
+	    margin:10px auto;
+	    transition: bottom 300ms cubic-bezier(0.35, 0, 0.25, 1);
 	    justify-content:space-between;
+	}
+	.article-detail .main .others.active{
+		bottom:-50px;
 	}
 	.article-detail .main .others a{
 	    width:20%;
@@ -96,6 +109,7 @@ page-article {
 	    line-height: 30px;
 	    border-radius: 30px;
 	    color:#2B4356;
+	    background:#fff;
 	    border:1px solid #2B4356;
 	}
 	.article-detail .main .others a.is-liked{

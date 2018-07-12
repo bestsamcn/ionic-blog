@@ -4,7 +4,7 @@
  	</ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content #xcontent (ionScrollStart)="onStart()" (ionScrollEnd)="onEnd()">
 	<div class="article-detail" *ngIf="article">
         <div class="main">
             <div class="title">
@@ -22,8 +22,8 @@
             </p>
             <div class="content markdown-body" [innerHTML]="article.content">
             </div>
-            <div class="others">
-                <a href="javascript:;" (click)="goBack()">评论</a>
+            <div class="others" #xothers id="x-others">
+                <a href="javascript:;" (click)="goCommentPage()">评论</a>
                 <a *ngIf="prevID" (click)="getArticleDetail(prevID)">前篇</a>
                 <a *ngIf="nextID" (click)="getArticleDetail(nextID)">后篇</a>
                 <a href="javascript:;" (click)="likeClick()" [ngClass]="{'is-liked':isLiked}">点赞</a>

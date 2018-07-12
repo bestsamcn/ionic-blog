@@ -12,15 +12,18 @@ export class MyApp {
     rootPage:any = TabsPage;
 
     constructor(
-    	platform: Platform, 
-    	statusBar: StatusBar, 
-    	splashScreen: SplashScreen, 
-    	initialService: InitialService
-    ){
-        platform.ready().then(() => {
-        	initialService.getHotWordList();
-            statusBar.styleDefault();
-            splashScreen.hide();
+    	public platform: Platform, 
+    	public statusBar: StatusBar, 
+    	public splashScreen: SplashScreen, 
+    	public initialService: InitialService
+    ){}
+    ionViewDidLoad(){
+        this.platform.ready().then(() => {
+            this.initialService.getHotWordList();
+            // statusBar.backgroundColorByHexString('#ffffff');
+            // statusBar.overlaysWebView(false);
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
         });
     }
 }

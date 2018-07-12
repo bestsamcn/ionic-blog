@@ -28,4 +28,19 @@ export class ArticleService {
     setArticleLike(id: string){
         return this.requestService.post({url:'/article/like', params:{id}});
     }
+
+    //获取文章评论列表
+    getCommentList(params: {id: string, pageIndex: number, pageSize: number}){
+        return this.requestService.get({url:'/comment/getList', params:params});
+    }
+
+    //添加文章评论
+    addComment(params: {article: string, name: string, email: string, content: string, parentComment: string}){
+        return this.requestService.post({url:'/comment/add', params:params});
+    }
+
+    //点赞评论
+    setCommentLike(params: {id: string, isLike: boolean}){
+        return this.requestService.post({url:'/comment/like', params:params});
+    }
 }

@@ -64,3 +64,5 @@ export class Scroll implements OnChanges, OnDestroy, OnInit{
         
     }
 }
+
+    

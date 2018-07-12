@@ -1,0 +1,76 @@
+<ion-header>
+ 	<ion-navbar>
+		<ion-title>评论({{total}})</ion-title>
+ 	</ion-navbar>
+</ion-header>
+
+<ion-content padding-horizontal>
+    <ion-refresher (ionRefresh)="onRefreshCall($event)"> 
+        <ion-refresher-content
+            pullingIcon="arrow-round-down"
+            refreshingSpinner="circles"
+        > 
+        </ion-refresher-content>
+    </ion-refresher>
+	<div class="article-detail">
+        <div class="main">
+            <div class="comment">
+                <!--<div class="comment-form">
+                    <ul>
+                        <li>
+                            <input type="text" [(ngModel)]="name" placeholder="你的昵称">
+                        </li>
+                        <li>
+                            <input type="text" [(ngModel)]="email" placeholder="请填写有效邮箱，否则无法收到回复通知">
+                        </li>
+                        <li style="position:relative">
+                            <span *ngIf="!!reply" id="reply-name">@{{reply.createLog.createName+': '}}</span>
+                            <textarea (mouseup)="getTextFocus($event)" (mousedown)="getTextFocus($event)" (keyup)="getTextFocus($event); backSpace($event)" (keydown)="getTextFocus($event); addComment($event)" (focus)="getTextFocus($event)" (blur)="getTextFocus($event)" [placeholder]="replyOffsetWidth ? '' : '回复内容'" id="message-content" [ngStyle]="{textIndent:replyOffsetWidth+'px'}" [(ngModel)]="content" cols="30" rows="10">
+                            </textarea>
+                        </li>
+                        <li class="others-bar">
+                            <label>
+                                <input type="checkbox" [(ngModel)]="isSaveInfo">
+                                <span class="icon-check-empty">记住评论信息</span>
+                            </label>
+                            <a href="javascript:;" class="face icon-github-alt" (click)="showFace()">表情</a>
+                            <button class="sub-btn" (click)="addComment()">提交</button>
+                             <article-emoji (onFaceClick)="onFaceClick($event)" [shouldShowFace]="shouldShowFace" ></article-emoji>
+                        </li>
+                    </ul>
+                </div> -->
+
+                <div class="comment-list" *ngIf="commentList && commentList.length">
+                    <div class="comment-item"  *ngFor="let item of commentList">
+                        <a :name="item._id"></a>
+                        <div class="favor">
+                            <a href="javascript:;" class="cicon-sort-up up" (click)="setCommentLike(true, item)"></a>
+                            <span>{{item.likeNum}}</span>
+                            <a href="javascript:;" class="cicon-sort-down down" (click)="setCommentLike(false, item)"></a>
+                        </div>
+                        <div class="cont">
+                            <h4 class="title text-left">
+                                {{item.createLog.createName}}：
+                            </h4>
+                            <p *ngIf="!!item.parentComment" class="quote">@{{item.parentComment.createLog.createName}}：<span [innerHTML]="filterHtml(item.parentComment.content)"></span></p>
+                            <p class="text text-left color-black margin-top-5 curr-text" [innerHTML]="filterHtml(item.content)"></p>
+                            <div class="operate text-left margin-top-10">
+                                <a class="color-gray font-12 icon-time">{{item.createLog.createTime | dateDesc}}</a>
+                                <a href="javascript:;" class="text-left color-gray font-12 icon-comment" (click)="replyClick(item)">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center margin-top-30 color-black font-12" *ngIf="!commentList || !commentList.length">暂无评论</p>
+                <!-- <p class="text-center margin-top-10 color-gray" *ngIf="!isMore">没有更多了...</p>-->
+            </div>
+        </div>
+    </div>
+    <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="isMore" threshold="50px"> 
+       <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载中..."
+        > 
+        </ion-infinite-scroll-content> 
+    </ion-infinite-scroll>
+</ion-content>

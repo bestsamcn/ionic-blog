@@ -129,6 +129,14 @@
     content: "\F041";
 }
 
+.cicon-sort-up:before {
+    content: "\F0DE";
+}
+
+.cicon-sort-down:before {
+    content: "\F0DD";
+}
+
 ion-navbar.toolbar{
     padding:0 5px;
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { POSTER_URL, FACE_URL } from '../../config/index';
 import { ArticleService } from '../../providers/article';
 import $$ from '../../utils/index';
+import { CommentPage } from './comment/comment';
 
 interface Article{
 	_id: string,
@@ -27,7 +28,9 @@ interface Article{
 	selector: 'page-article',
 	templateUrl: 'article.html',
 })
-export class ArticlePage {
+export class ArticlePage{
+	@ViewChild('xcontent') xcontent:Content;
+	@ViewChild('xothers') xothers:ElementRef;
 	public POSTER_URL:string = POSTER_URL;
 	public FACE_URL:string = FACE_URL;
 	public article:Article;
@@ -66,8 +69,21 @@ export class ArticlePage {
 			console.log(e, 'ArticlePage likeClick error');
 		}
 	}
-
-	goBack(){
-		this.navController.pop();
+	
+	//评论跳转
+	goCommentPage(){
+		this.navController.push(CommentPage, {id: this.article._id});
 	}
+	
+	//滚动结束
+    onEnd(){
+    	let oFooter:{nativeElement:{className:string}} = this.xothers;
+    	oFooter.nativeElement.className = 'others';
+    }
+
+    //滚动开始
+    onStart(){
+    	let oFooter:{nativeElement:{className:string}} = this.xothers;
+    	oFooter.nativeElement.className = 'others active';
+    }
 }
