@@ -11,7 +11,7 @@
 <ion-content>
 	<div class="best-tabs">
 		<div class="best-tabs-content">
-			<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()">
+			<ion-slides [pager]="false" #slidesContent (ionSlideDidChange)="onSlideChanged()" (ionSlideDrag)="onSlideDrag()">
 			  <ion-slide style="background-color: green" *ngFor="let item of homeService.categoryArticleList; let i = index;">
 			    	<article 
 			    		class="article-list" 
@@ -19,6 +19,9 @@
 			    		(onRefresh)="getAritlceList($event, true, i)"
 			    		(onLoadMore)="getAritlceList($event, false, i)"
 			    		[isMore]= "item.isMore"
+			    		[canPullDown]="canPullDown"
+			    		[index]="i"
+			    		[slideIndex]="slideIndex"
 			    	>
 			    	</article>
 			  </ion-slide>

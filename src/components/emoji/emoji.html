@@ -1,0 +1,8 @@
+<div class="emoji-cover">
+	<div class="emoji-mask" [ngStyle]="{display:shouldShowFace ? 'block' : 'none'}" (click)="closeFace()"></div>
+	<div class="emoji" *ngIf="shouldShowFace" [@flyInOut]="shouldShowFace">
+		<a class="javascript:;" (click)="selectFace(item)" *ngFor="let item of emojiList">
+			<img [src]="FACE_URL+item+'.png'">
+		</a>
+	</div>
+</div>

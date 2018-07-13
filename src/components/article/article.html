@@ -1,8 +1,8 @@
 <ion-content>
-    <ion-refresher (ionRefresh)="onRefreshCall($event)"> 
+    <ion-refresher (ionRefresh)="onRefreshCall($event)" [enabled]="_canPullDown"> 
         <ion-refresher-content
             pullingIcon="arrow-round-down"
-            refreshingSpinner="circles"
+            refreshingSpinner="ios"
         > 
         </ion-refresher-content>
     </ion-refresher>
@@ -31,8 +31,7 @@
     </div>
     <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="_isMore" threshold="50px"> 
        <ion-infinite-scroll-content
-            loadingSpinner="bubbles"
-            loadingText="加载中..."
+            loadingSpinner="ios"
         > 
         </ion-infinite-scroll-content> 
     </ion-infinite-scroll>

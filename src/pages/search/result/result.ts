@@ -18,13 +18,17 @@ export class SearchResultPage {
     //获取结果
     async getAritlceList(evt: any, isRefresh: boolean) {
         try {
-            await this.searchService.getArticleList({
-                isRefresh
-            });
+            await this.searchService.getArticleList({isRefresh});
             evt.complete();
         } catch (e) {
             evt.complete();
         }
+    }
+    
+
+    //搜索
+    async onSearch(){
+        await this.searchService.getArticleList({isRefresh:true});
     }
 
     //输入

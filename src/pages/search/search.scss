@@ -2,6 +2,16 @@ page-search {
 	.toolbar-background{
 		background:#fff;
 	}
+	.hot-word{
+		position:relative;
+	}
+	.hot-word .clear-records{
+		position: absolute;
+	    right: 0px;
+	    top: 0;
+	    color:#2B4356;
+	    padding: 0 10px;
+	}
 	.hot-word .hot-word-list{
 		display: -webkit-box;
 	    display: -ms-flexbox;
@@ -28,10 +38,9 @@ page-search {
 	    padding: 0 8px;
 	    border-radius: 3px;
 	    overflow: hidden;
-	    color: #2b4356;
+	    color: #666;
 	    font-size: 12px;
-	    border: 1px solid #1abc9c;
-	    color: #1abc9c;
+	    border: 1px solid #ddd;
 	}
 	.searchbar-search-icon{
 	}

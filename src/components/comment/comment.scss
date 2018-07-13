@@ -1,0 +1,107 @@
+comment {
+	.comment .comment-form{
+	    width:100%;
+	    position: relative;
+	    margin:20px 0;
+	}
+	.comment .comment-form li{
+	    width:100%;
+	    margin:10px auto;
+	    vertical-align: top;
+	    list-style:none;
+	    overflow: hidden;
+	}
+	.comment .comment-form li input{
+	    height:40px;
+	    padding:10px;
+	    background:#f1f1f1;
+	    border:none;
+	    width:100%;
+	}
+	.comment .comment-form li textarea{
+	    resize:none;
+	    width:100%;
+	    height:100px;
+	    position: relative;
+	    // display: block;
+	    overflow: hidden;
+	    border:1px solid #e4e9ed;
+	    padding:10px;
+	}
+	.comment .comment-form li textarea.reply::-webkit-input-placeholder{
+	}
+	.comment .comment-form li textarea:focus{
+	    outline: 1px solid #3599DD;
+	}
+	.comment .comment-form li label{
+	    display: inline-block;
+	    float: left;
+	    line-height: 30px;
+	}
+	.comment .comment-form li label input{
+	    display: none;
+	}
+	.comment .comment-form li label span{
+	    font-size: 12px;
+	}
+	.comment .comment-form li label span:before{
+	    font-size: 12px;
+	    line-height: 12px;
+	    margin-right: 5px;
+	    width:14px;
+	    height:14px;
+
+	}
+	.comment .comment-form li label input:checked + span:before{
+	    content:'\f046'
+	}
+	.comment .comment-form li .face{
+	    font-size: 12px;
+	    color: #3599DD;
+	    line-height: 30px;
+	    float: left;
+	    margin-left: 20px;
+	    padding: 0 10px;
+	}
+	.comment .comment-form li .icon-github-alt:before{
+	    margin-right: 5px;
+	}
+
+	.comment .comment-form li.others-bar{
+	    position: relative;
+	    overflow:visible;
+	}
+	.comment .more-btn{
+	    width:60%;
+	    height:40px;
+	    display: block !important;
+	    line-height: 40px;
+	    text-align: center;
+	    color:#bdc3c7;
+	    border-radius: 40px;
+	    border:1px solid #bdc3c7;
+	    margin:30px auto;
+	}
+	.comment .sub-btn{
+		width:50px;
+	    height:40px;
+	    margin-top:20px;
+	    float: right;
+	    outline: none;
+	    border-radius: 2px;
+	    color:#fff;
+	    width:100%;
+	    border:none;
+	    background:#1ABC9C;
+	}
+	.comment  button{
+		border:none;
+	}
+	.checkbox-ios {
+		vertical-align: middle;
+	}
+	.icon-check-empty{
+		margin-left:10px;
+	}
+	
+}

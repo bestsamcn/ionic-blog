@@ -11,6 +11,8 @@ import { ArticlePage } from '../../pages/article/article';
 export class ArticleComponent{
 	_articleList:Array<object> = [];
 	_isMore:boolean = true;
+	_canPullDown:boolean = true;
+
 	@Input() 
 	get articleList():Array<object>{
 		return this._articleList;
@@ -18,6 +20,7 @@ export class ArticleComponent{
 	set articleList(value:Array<object>){
 		this._articleList = value;
 	}
+
 	@Input()
 	get isMore():boolean{
 		return this._isMore;
@@ -25,6 +28,19 @@ export class ArticleComponent{
 	set isMore(value:boolean){
 		this._isMore = value;
 	}
+
+	@Input() 
+	get canPullDown():boolean{
+		console.log(this._canPullDown, 'fffffffffffff')
+		return this._canPullDown;
+	}
+	set canPullDown(value:boolean){
+		console.log(value, this.index, this.slideIndex, 'fffffffffffff')
+		this._canPullDown = value;
+	}
+
+	@Input() index:number = 0;
+	@Input() slideIndex:number = 0;e;
 	@Input() isShowMore?:boolean = true;
 	@Output() onLoadMore?:any = new EventEmitter();
 	@Output() onRefresh?:any = new EventEmitter();

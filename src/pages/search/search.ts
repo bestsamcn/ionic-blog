@@ -13,23 +13,17 @@ import { SearchResultPage } from './result/result';
 })
 export class SearchPage {
 	@ViewChild('searchbar') searchbar:Searchbar;
+	
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 		public searchService: SearchService,
 		public globalService: GlobalService
-	){
-	}
+	){}
 
 	//跳转结果页
 	goResultPage(keyword){
 	  	this.searchService.getArticleList({isRefresh:true, keyword});
 	  	this.navCtrl.push(SearchResultPage);
-	}
-
-	ionViewDidLoad(){
-		setTimeout(()=>{
-			// this.searchbar.setFocus();	
-		}, 500)
 	}
 }

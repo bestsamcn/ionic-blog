@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, DoCheck } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, DoCheck } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { GlobalService } from '../../providers/global';
 import { HomeService } from '../../providers/home';
@@ -10,11 +10,12 @@ let clientWidth: number = document.documentElement.clientWidth;
     selector: 'tabs',
     templateUrl: 'tabs.html'
 })
-export class TabsComponent implements OnInit, DoCheck {
+export class TabsComponent implements AfterViewInit, DoCheck {
     iscroll: any;
     categoryLength: any;
     maxIndex: any;
     maxLeft: any;
+    canPullDown: boolean = true;
     @ViewChild('slidesContent') slidesContent: Slides;
     public slideIndex: number;
     constructor(public globalService: GlobalService, public homeService: HomeService) {
@@ -80,9 +81,16 @@ export class TabsComponent implements OnInit, DoCheck {
             evt.complete();
         }
     }
+    
+
+    //将要滑动
+    onSlideDrag(){
+        this.canPullDown = false;
+    }
 
     //初始化
-    ngOnInit() {
+    ngAfterViewInit() {
+
         this.iscroll = new IScroll('#scroll', {
             scrollX: true,
             scrollY: false
@@ -90,5 +98,11 @@ export class TabsComponent implements OnInit, DoCheck {
         document.addEventListener('touchmove', function(e) {
             e.preventDefault();
         }, false);
+        setTimeout(()=>{
+            this.slidesContent._wrapper.addEventListener('touchend', e=>{
+                this.canPullDown = true;
+            });
+        }, 500)
+       
     }
 }

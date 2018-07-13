@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 @Component({
     templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements AfterViewInit{
     rootPage:any = TabsPage;
 
     constructor(
@@ -16,12 +16,13 @@ export class MyApp {
     	public statusBar: StatusBar, 
     	public splashScreen: SplashScreen, 
     	public initialService: InitialService
-    ){}
-    ionViewDidLoad(){
+    ){
+
+    }
+    ngAfterViewInit(){
         this.platform.ready().then(() => {
             this.initialService.getHotWordList();
-            // statusBar.backgroundColorByHexString('#ffffff');
-            // statusBar.overlaysWebView(false);
+            this.statusBar.overlaysWebView(false);
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });

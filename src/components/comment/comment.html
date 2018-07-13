@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-navbar>
+	    <ion-title>提交评论</ion-title>
+	    <ion-buttons start>
+	      <button ion-button (click)="closeModal()">
+	        <span ion-text color="primary" showWhen="ios, android">取消</span>
+	      </button>
+	    </ion-buttons>
+	  </ion-navbar>
+</ion-header>
+<ion-content padding-horizontal>
+	<div class="article-detail">
+	    <div class="main">
+	        <div class="comment">
+	            <div class="comment-form">
+	                <ul>
+	                    <li>
+	                        <input type="text" [(ngModel)]="name" placeholder="你的昵称">
+	                    </li>
+	                    <li>
+	                        <input type="text" [(ngModel)]="email" placeholder="请填写有效邮箱，否则无法收到回复通知">
+	                    </li>
+	                    <li style="position:relative">
+	                        <textarea (mouseup)="getTextFocus($event)" [placeholder]="!!reply ? '回复'+reply.createLog.createName+':' : '输入评论'" (focus)="getTextFocus($event)" (blur)="getTextFocus($event)" id="message-content" [ngStyle]="{textIndent:replyOffsetWidth+'px'}" [(ngModel)]="content" cols="30" rows="10">
+	                        </textarea>
+	                    </li>
+	                    <li class="others-bar">
+	                        <label>
+	                            <ion-checkbox color="#1abc9c" [(ngModel)]="isSaveInfo"></ion-checkbox>
+	                            <span class="icon-check-empty">记住评论信息</span>
+	                        </label>
+	                        <a href="javascript:;" class="face icon-github-alt" (click)="showFace()">表情</a>
+	                        
+	                         <comment-emoji (onFaceClose)="onFaceClose()" (onFaceClick)="onFaceClick($event)" [shouldShowFace]="shouldShowFace" ></comment-emoji>
+	                    </li>
+	                </ul>
+	                <button class="sub-btn" ion-button (click)="addComment()">提交</button>
+	            </div> 
+	        </div>
+	    </div>
+	</div>
+</ion-content>
+
+
+ 

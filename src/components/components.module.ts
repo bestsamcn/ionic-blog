@@ -8,6 +8,8 @@ import { Clocky } from '../directives/index';
 import { TabsComponent } from './tabs/tabs';
 
 import { ClockComponent } from './clock/clock';
+import { CommentComponent } from './comment/comment';
+import { EmojiComponent } from './emoji/emoji';
 
 //布局模块
 @NgModule({
@@ -17,7 +19,12 @@ import { ClockComponent } from './clock/clock';
 		FaComponent,
     	ArticleComponent,
 	    TabsComponent,
-    	ClockComponent
+    	ClockComponent,
+    	CommentComponent,
+    	EmojiComponent
+    ],
+    entryComponents:[
+		CommentComponent
     ],
 	imports: [
 		IonicModule.forRoot(HeaderComponent),
@@ -28,7 +35,9 @@ import { ClockComponent } from './clock/clock';
 		FaComponent,
     	ArticleComponent,
     	TabsComponent,
-    	ClockComponent
+    	ClockComponent,
+    	CommentComponent,
+    	EmojiComponent
     ]
 })
 export class ComponentsModule {}

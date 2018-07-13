@@ -6,6 +6,8 @@
     		animated
     		placeholder='请输入关键字'
     		cancelButtonText='取消'
+        [(ngModel)]="searchService.keyword"
+        (keyup.enter)="goResultPage(searchService.keyword)"
     	>
 		</ion-searchbar>
   	</ion-navbar>
@@ -17,4 +19,11 @@
 			<a class="hot-wrod-list-tag" (click)="goResultPage(item.name)" *ngFor="let item of globalService.hotWordList">{{item.name}}</a>
 		</div>
 	</div>
+    <div class="hot-word margin-top-20">
+        <a class="clear-records" (click)="searchService.clearRecords()"><ion-icon name="trash"></ion-icon></a>
+        <h4 class="color-black font-14 font-bold"><ion-icon name="paper"></ion-icon>：搜索记录</h4>
+        <div class="hot-word-list">
+            <a class="hot-wrod-list-tag" (click)="goResultPage(item)" *ngFor="let item of searchService.records">{{item}}</a>
+        </div>
+    </div>
 </ion-content>

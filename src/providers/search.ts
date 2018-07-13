@@ -18,20 +18,30 @@ export class SearchService {
     public pageIndex:number = 1;
     public isRefreshing:boolean = true;
     public isMoring:boolean = false;
-    public isMore:boolean = true
+    public isMore:boolean = true;
+    public records:array=[];
     constructor(public requestService: RequestService) {
-        
+        !!localStorage.records && (this.records = JSON.parse(localStorage.records));
     }
 
     //设置关键字
     setKeyword(keyword:string){
         this.keyword = keyword;
+        this.records.push(keyword);
+        localStorage.records = JSON.stringify(this.records);
+    }
+    
+    //清除记录
+    clearRecords(){
+        console.log(this.records, 'ddddddddddddddddddd')
+        this.records = [];
+        localStorage.records = JSON.stringify([]);
     }
 
     //获取文章列表
     getArticleList(params: Params){
         let { isRefresh, keyword } = params;
-        this.keyword = keyword || this.keyword;
+        this.setKeyword(keyword || this.keyword);
         return new Promise(async (resolve, reject)=>{
             let { pageIndex, pageSize } = this;
             let _pageIndex = pageIndex;

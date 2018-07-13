@@ -8,38 +8,13 @@
     <ion-refresher (ionRefresh)="onRefreshCall($event)"> 
         <ion-refresher-content
             pullingIcon="arrow-round-down"
-            refreshingSpinner="circles"
+            refreshingSpinner="ios"
         > 
         </ion-refresher-content>
     </ion-refresher>
 	<div class="article-detail">
         <div class="main">
             <div class="comment">
-                <!--<div class="comment-form">
-                    <ul>
-                        <li>
-                            <input type="text" [(ngModel)]="name" placeholder="你的昵称">
-                        </li>
-                        <li>
-                            <input type="text" [(ngModel)]="email" placeholder="请填写有效邮箱，否则无法收到回复通知">
-                        </li>
-                        <li style="position:relative">
-                            <span *ngIf="!!reply" id="reply-name">@{{reply.createLog.createName+': '}}</span>
-                            <textarea (mouseup)="getTextFocus($event)" (mousedown)="getTextFocus($event)" (keyup)="getTextFocus($event); backSpace($event)" (keydown)="getTextFocus($event); addComment($event)" (focus)="getTextFocus($event)" (blur)="getTextFocus($event)" [placeholder]="replyOffsetWidth ? '' : '回复内容'" id="message-content" [ngStyle]="{textIndent:replyOffsetWidth+'px'}" [(ngModel)]="content" cols="30" rows="10">
-                            </textarea>
-                        </li>
-                        <li class="others-bar">
-                            <label>
-                                <input type="checkbox" [(ngModel)]="isSaveInfo">
-                                <span class="icon-check-empty">记住评论信息</span>
-                            </label>
-                            <a href="javascript:;" class="face icon-github-alt" (click)="showFace()">表情</a>
-                            <button class="sub-btn" (click)="addComment()">提交</button>
-                             <article-emoji (onFaceClick)="onFaceClick($event)" [shouldShowFace]="shouldShowFace" ></article-emoji>
-                        </li>
-                    </ul>
-                </div> -->
-
                 <div class="comment-list" *ngIf="commentList && commentList.length">
                     <div class="comment-item"  *ngFor="let item of commentList">
                         <a :name="item._id"></a>
@@ -62,15 +37,16 @@
                     </div>
                 </div>
                 <p class="text-center margin-top-30 color-black font-12" *ngIf="!commentList || !commentList.length">暂无评论</p>
-                <!-- <p class="text-center margin-top-10 color-gray" *ngIf="!isMore">没有更多了...</p>-->
             </div>
         </div>
     </div>
     <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="isMore" threshold="50px"> 
        <ion-infinite-scroll-content
-            loadingSpinner="bubbles"
-            loadingText="加载中..."
+            loadingSpinner="ios"
         > 
         </ion-infinite-scroll-content> 
     </ion-infinite-scroll>
 </ion-content>
+<div class="commentbar">
+    <a class="commentbar-placeholder cicon-edit" (click)="replyClick()">期待你的神评论</a>
+</div>

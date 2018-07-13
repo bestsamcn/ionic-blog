@@ -1,9 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule,  } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { PagesModule } from '../pages/pages.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,6 +27,7 @@ import { InitialService } from '../providers/initial';
         BrowserModule,
         PagesModule,
         HttpClientModule,
+        BrowserAnimationsModule,
         IonicModule.forRoot(MyApp, {
             tabsHideOnSubPages: 'true',
             iconMode:'ios',
