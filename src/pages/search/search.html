@@ -19,7 +19,7 @@
 			<a class="hot-wrod-list-tag" (click)="goResultPage(item.name)" *ngFor="let item of globalService.hotWordList">{{item.name}}</a>
 		</div>
 	</div>
-    <div class="hot-word margin-top-20">
+    <div class="hot-word margin-top-20" *ngIf="!!searchService.records && !!searchService.records.length">
         <a class="clear-records" (click)="searchService.clearRecords()"><ion-icon name="trash"></ion-icon></a>
         <h4 class="color-black font-14 font-bold"><ion-icon name="paper"></ion-icon>：搜索记录</h4>
         <div class="hot-word-list">
