@@ -55,7 +55,7 @@ export class DateDescPipe implements PipeTransform {
 	transform(oldDate: number) {
 		let now: number=new Date().getTime();
         let past: number=  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime();
-        let diffValue= now - past;
+        let diffValue: number= now - past;
         let res: number | string;
         let s: number = 1000;
         let m: number = 1000 * 60;
@@ -78,7 +78,7 @@ export class DateDescPipe implements PipeTransform {
         else if(_h>=1) {res = Math.floor(_h) +'小时前';}
         else if(_m>=1) {res = Math.floor(_m) +'分钟前';}
         else if(_s>=1) {res = Math.floor(_s) +'秒前';}
-        res = '刚刚';
+        else res = '刚刚';
         return res;
 	}
 }
