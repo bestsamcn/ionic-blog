@@ -31,7 +31,7 @@ export class ArticleService {
 
     //获取文章评论列表
     getCommentList(params: {id: string, pageIndex: number, pageSize: number}){
-        return this.requestService.get({url:'/comment/getList', params:params, isLoading:true});
+        return this.requestService.get({url:'/comment/getList', params:params});
     }
 
     //添加文章评论
