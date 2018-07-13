@@ -9,7 +9,7 @@ export class MessageService {
 
     //留言提交
     postMessage(params:any){
-    	return this.requestService.post({url:'/message/add', params})	
+    	return this.requestService.post({url:'/message/add', params, isLoading:true, isToast:true});	
     }
     
 }

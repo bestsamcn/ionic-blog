@@ -15,7 +15,7 @@ export class ArticleService {
     getArticleDetail(id: string) {
         return new Promise(async (resolve, reject) => {
             try {
-                let res: any = await this.requestService.get({url: '/article/getDetail', params: {id, type:1}});
+                let res: any = await this.requestService.get({url: '/article/getDetail', params: {id, type:1}, isLoading:true});
                 return resolve(res.data);
             } catch (e) {
                 console.log('ArticleService getArticleDetail error')
@@ -31,12 +31,12 @@ export class ArticleService {
 
     //获取文章评论列表
     getCommentList(params: {id: string, pageIndex: number, pageSize: number}){
-        return this.requestService.get({url:'/comment/getList', params:params});
+        return this.requestService.get({url:'/comment/getList', params:params, isLoading:true});
     }
 
     //添加文章评论
     addComment(params: {article: string, name: string, email: string, content: string, parentComment: string}){
-        return this.requestService.post({url:'/comment/add', params:params});
+        return this.requestService.post({url:'/comment/add', params:params, isLoading:true});
     }
 
     //点赞评论

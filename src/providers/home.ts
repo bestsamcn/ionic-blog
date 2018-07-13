@@ -27,6 +27,7 @@ export class HomeService {
     	public platform:Platform
     ){
 		this.getCategoryList();
+		localStorage.categoryArticleList && (this.categoryArticleList =  JSON.parse(localStorage.categoryArticleList));
     }
 	
     //获取文章列表
@@ -64,13 +65,15 @@ export class HomeService {
 				if(!!isRefreshing){
 					console.log('refresh')
 					this.categoryArticleList[currentCategoryIndex].articleList = res.data;
+					localStorage.categoryArticleList = JSON.stringify(this.categoryArticleList);
 				}
 				if(!isRefreshing){
 					console.log('loadMore')
 					this.categoryArticleList[currentCategoryIndex].articleList = this.categoryArticleList[currentCategoryIndex].articleList.concat(res.data);
 					this.categoryArticleList[currentCategoryIndex].pageIndex = params.pageIndex;
 				}
-				if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
+				
+				// if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 				return resolve();
 	    	}catch(e){
 
@@ -79,7 +82,8 @@ export class HomeService {
 	    		this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
 				this.categoryArticleList[currentCategoryIndex].isMoring = false;
 				this.categoryArticleList[currentCategoryIndex].pageIndex = _pageIndex;
-				if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
+				// localStorage.categoryArticleList = JSON.stringify(this.categoryArticleList);
+				// if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 	    		return reject();
 	    	}
     	});

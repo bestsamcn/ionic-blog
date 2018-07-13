@@ -19,7 +19,7 @@ export class SearchService {
     public isRefreshing:boolean = true;
     public isMoring:boolean = false;
     public isMore:boolean = true;
-    public records:array=[];
+    public records=[];
     constructor(public requestService: RequestService) {
         !!localStorage.records && (this.records = JSON.parse(localStorage.records));
     }
@@ -27,13 +27,21 @@ export class SearchService {
     //设置关键字
     setKeyword(keyword:string){
         this.keyword = keyword;
-        this.records.push(keyword);
+        if(!this.keyword) return;
+        let _index:any;
+        this.records.map((item, index)=>{
+            if(item == keyword){
+                _index = index;
+            }
+            return item;
+        });
+        _index && this.records.splice(_index, 1);
+        this.records.unshift(keyword);
         localStorage.records = JSON.stringify(this.records);
     }
     
     //清除记录
     clearRecords(){
-        console.log(this.records, 'ddddddddddddddddddd')
         this.records = [];
         localStorage.records = JSON.stringify([]);
     }

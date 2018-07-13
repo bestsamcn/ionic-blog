@@ -31,11 +31,9 @@ export class ArticleComponent{
 
 	@Input() 
 	get canPullDown():boolean{
-		console.log(this._canPullDown, 'fffffffffffff')
 		return this._canPullDown;
 	}
 	set canPullDown(value:boolean){
-		console.log(value, this.index, this.slideIndex, 'fffffffffffff')
 		this._canPullDown = value;
 	}
 

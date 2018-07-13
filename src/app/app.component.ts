@@ -17,7 +17,7 @@ export class MyApp implements AfterViewInit{
     	public splashScreen: SplashScreen, 
     	public initialService: InitialService
     ){
-
+        statusBar.hide();
     }
     ngAfterViewInit(){
         this.platform.ready().then(() => {

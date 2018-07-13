@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
+import { ToastController, LoadingController } from 'ionic-angular';
 import $$ from '../utils';
 
 @Injectable()
 export class GlobalService {
-    private toastTimer: any = null;
     public isMobile: boolean = false;
     public token: string = '';
     public userInfo: any = {};
     public isLoading: boolean = false;
+    public loading: any;
     public toastMessage: string = '';
     public hotWordList: Array<any> = [];
     public categoryList = [];
     public isMenuVisible = false
-    constructor() {
+    constructor(public toastController:ToastController, public loadingController: LoadingController) {
         this.getLocalToken();
         this.getDeviceType();
+        this.loading = loadingController.create({dismissOnPageChange:true});
     }
 
     //查看设备类型
@@ -32,6 +34,20 @@ export class GlobalService {
         this.token = token;
     }
 
+    //设置loading
+    setLoading(bool:boolean){
+        !this.loading && (this.loading = this.loadingController.create({dismissOnPageChange:true}));
+        if(!!bool){
+            this.isLoading = true;
+
+            this.loading.present();
+            return false;
+        } 
+        this.isLoading = false;
+        this.loading.dismiss();
+        this.loading = null;
+    }
+
     //获取本地缓存token
     getLocalToken(): void {
         let token: string = localStorage.__bestToken__ || '';
@@ -40,14 +56,13 @@ export class GlobalService {
 
     //设置气泡提示
     setToast(msg: string) {
-        this.toastTimer && clearTimeout(this.toastTimer);
         this.toastMessage = msg;
-        this.toastTimer = setTimeout(() => {
-            this.toastMessage = ''
-        }, 2000);
+        this.toastController.create({
+            message: this.toastMessage,
+            duration: 2000,
+            position: 'middle'
+        }).present();
     }
-
-
 
     //获取分类
    setCategoryList(categoryList: Array<any>){

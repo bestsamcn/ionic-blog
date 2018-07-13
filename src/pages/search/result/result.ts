@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { Keyboard } from '@ionic-native/keyboard';
 import { SearchService } from '../../../providers/search';
 
 
@@ -12,7 +12,8 @@ export class SearchResultPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public searchService: SearchService
+        public searchService: SearchService,
+        public keybord:Keyboard
     ){}
 
     //获取结果
@@ -28,6 +29,7 @@ export class SearchResultPage {
 
     //搜索
     async onSearch(){
+        this.keybord.close();
         await this.searchService.getArticleList({isRefresh:true});
     }
 

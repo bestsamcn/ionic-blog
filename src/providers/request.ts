@@ -7,7 +7,8 @@ import { GlobalService } from './global';
 interface Config{
 	url:string,
 	params?:object | any,
-	isToast?:false
+	isLoading?:boolean,
+	isToast?:boolean
 }
 
 
@@ -19,10 +20,10 @@ export class RequestService {
 
 	//get请求
 	get(config: Config){
-		!this.globalService.isLoading && this.globalService.setLoadingState(true);
+		!this.globalService.isLoading && config.isLoading && this.globalService.setLoading(true);
 		return new Promise((resolve: any)=>{
 			this.httpClient.get(ROOT_API+config.url, {params:config.params}).subscribe((res: any)=>{
-				this.globalService.isLoading && this.globalService.setLoadingState(false);
+				!!this.globalService.isLoading && this.globalService.setLoading(false);
 				config.isToast && this.globalService.setToast(res.message || '请求成功');
 				resolve(res);
 			});
@@ -31,10 +32,10 @@ export class RequestService {
 
 	//post请求
 	post(config: Config){
-		!this.globalService.isLoading && this.globalService.setLoadingState(true);
+		!this.globalService.isLoading && config.isLoading && this.globalService.setLoading(true);
 		return new Promise((resolve: any)=>{
 			this.httpClient.post(ROOT_API+config.url, config.params).subscribe((res: any)=>{
-				this.globalService.isLoading && this.globalService.setLoadingState(false);
+				!!this.globalService.isLoading && this.globalService.setLoading(false);
 				config.isToast && this.globalService.setToast(res.message || '请求成功');
 				resolve(res);
 			});

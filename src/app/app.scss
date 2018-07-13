@@ -78,7 +78,25 @@
 .toolbar-ios{
     padding:0;
 }
+.toast-ios .toast-wrapper{
+    left: 10px;
+    right: 10px;
+    margin: auto;
+    border-radius: 4.65rem;
+    position: absolute;
+    z-index: 10;
+    display: block;
+    text-align: center;
+    max-width: 200px;
+    background:rgba(0, 0, 0, .8);
+}
 
+.toast-ios .toast-message{
+    padding:1rem;
+}
+.loading-ios .loading-wrapper{
+    background:rgba(255, 255, 255, .8);
+}
 [class*=" cicon-"], [class^=cicon-] {
     font-family: FontAwesome;
     font-weight: 400;
