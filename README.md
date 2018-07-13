@@ -24,7 +24,7 @@ npm run build
 
 ```
 ## 图片
-![piture](https://github.com/bestsamcn/ionic-blog/blob/master/screenshots/view.png?raw=true)
+![piture](https://raw.githubusercontent.com/bestsamcn/ionic-blog/master/screenshots/view1.png)
 
 ## 预览
 - 项目总体完成，部分细节有待修改。
