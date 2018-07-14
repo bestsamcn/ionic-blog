@@ -30,8 +30,8 @@
                             <p *ngIf="!!item.parentComment" class="quote">@{{item.parentComment.createLog.createName}}：<span [innerHTML]="filterHtml(item.parentComment.content)"></span></p>
                             <p class="text text-left color-black margin-top-5 curr-text" [innerHTML]="filterHtml(item.content)"></p>
                             <div class="operate text-left margin-top-10">
-                                <a class="color-gray font-12 icon-time">{{item.createLog.createTime | dateDesc}}</a>
-                                <a href="javascript:;" class="text-left color-gray font-12 icon-comment" (click)="replyClick(item)">回复</a>
+                                <a class="color-gray font-12 cicon-time">{{item.createLog.createTime | dateDesc}}</a>
+                                <a href="javascript:;" class="text-left color-gray font-12 cicon-comment" (click)="replyClick(item)">回复</a>
                             </div>
                         </div>
                     </div>
