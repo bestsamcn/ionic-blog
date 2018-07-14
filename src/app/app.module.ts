@@ -6,13 +6,15 @@ import { PagesModule } from '../pages/pages.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+//native services
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 
 //interceptor
 import { AjaxInterceptor } from '../interceptor';
+
 //services
 import { GlobalService } from '../providers/global';
 import { HomeService } from '../providers/home';
@@ -43,6 +45,7 @@ import { InitialService } from '../providers/initial';
         StatusBar,
         Keyboard,
         SplashScreen, 
+        NativePageTransitions,
         {
             provide: ErrorHandler,
             useClass: IonicErrorHandler
