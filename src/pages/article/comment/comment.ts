@@ -29,7 +29,6 @@ export class CommentPage {
 	
 	//获取评论列表
 	getList(isRefresh){
-        console.log(this.isMore, isRefresh,'ffffffffffffffffff')
         if(!this.isMore && !isRefresh) return;
         if(isRefresh) this.pageIndex = 1;
         var obj = {
