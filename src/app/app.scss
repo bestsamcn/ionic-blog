@@ -106,6 +106,9 @@
     display: inline-block;
     speak: none;
 }
+.cicon-arrow-up:before {
+    content: "\F062";
+}
 .cicon-calendar:before {
     content: "\F073";
 }

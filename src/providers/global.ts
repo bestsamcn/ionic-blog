@@ -36,7 +36,7 @@ export class GlobalService {
 
     //设置loading
     setLoading(bool:boolean){
-        !this.loading && (this.loading = this.loadingController.create({dismissOnPageChange:true}));
+        !this.loading && (this.loading = this.loadingController.create({dismissOnPageChange:false}));
         if(!!bool){
             this.isLoading = true;
 

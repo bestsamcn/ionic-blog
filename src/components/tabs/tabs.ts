@@ -19,7 +19,6 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     @ViewChild('slidesContent') slidesContent: Slides;
     public slideIndex: number;
     constructor(public globalService: GlobalService, public homeService: HomeService) {
-        console.log(homeService, 'ffffffffffff')
     }
 
     //滑动完毕

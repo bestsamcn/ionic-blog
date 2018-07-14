@@ -10,6 +10,7 @@ import { TabsComponent } from './tabs/tabs';
 import { ClockComponent } from './clock/clock';
 import { CommentComponent } from './comment/comment';
 import { EmojiComponent } from './emoji/emoji';
+import { TopComponent } from './top/top';
 
 //布局模块
 @NgModule({
@@ -21,7 +22,8 @@ import { EmojiComponent } from './emoji/emoji';
 	    TabsComponent,
     	ClockComponent,
     	CommentComponent,
-    	EmojiComponent
+    	EmojiComponent,
+        TopComponent
     ],
     entryComponents:[
 		CommentComponent
@@ -37,7 +39,8 @@ import { EmojiComponent } from './emoji/emoji';
     	TabsComponent,
     	ClockComponent,
     	CommentComponent,
-    	EmojiComponent
+    	EmojiComponent,
+        TopComponent
     ]
 })
 export class ComponentsModule {}
