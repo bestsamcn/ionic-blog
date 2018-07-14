@@ -13,7 +13,7 @@ export class InitialService {
   	//获取热词
     async getHotWordList(){
     	try{
-    		let res:any = await this.requestService.get({url:'/hot/getList', params:{}});
+    		let res:any = await this.requestService.get({url:'/hot/getList', params:{}, isLoading:true});
     		this.globalService.setState({hotWordList:res.data});
     	}catch(e){
     		console.log('InitialService getHotWordList error')

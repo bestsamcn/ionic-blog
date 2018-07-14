@@ -29,6 +29,7 @@ export class CommentPage {
 	
 	//获取评论列表
 	getList(isRefresh){
+        console.log(this.isMore, isRefresh,'ffffffffffffffffff')
         if(!this.isMore && !isRefresh) return;
         if(isRefresh) this.pageIndex = 1;
         var obj = {
@@ -42,7 +43,7 @@ export class CommentPage {
             isRefresh ? (this.commentList = res.data) : (this.commentList = this.commentList.concat(res.data));
             if(this.pageIndex * this.pageSize >= res.total){
                 this.isMore = false;
-                return;
+                return resolve();
             }
             this.pageIndex++;
             this.isMore = true;

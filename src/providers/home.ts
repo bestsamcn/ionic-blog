@@ -3,7 +3,6 @@ import { RequestService } from './request';
 import { PAGE_SIZE } from '../config/index';
 import { GlobalService } from './global';
 import { category } from '../config/data';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { Platform } from 'ionic-angular';
 
 interface Params{
@@ -23,7 +22,6 @@ export class HomeService {
     constructor(
     	public request: RequestService, 
     	public globalService: GlobalService,
-    	public nativeStorage: NativeStorage,
     	public platform:Platform
     ){
 		this.getCategoryList();
@@ -72,18 +70,13 @@ export class HomeService {
 					this.categoryArticleList[currentCategoryIndex].articleList = this.categoryArticleList[currentCategoryIndex].articleList.concat(res.data);
 					this.categoryArticleList[currentCategoryIndex].pageIndex = params.pageIndex;
 				}
-				
-				// if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 				return resolve();
 	    	}catch(e){
 
 	    		console.log(e, 'HomeService getArticleList error');
-
 	    		this.categoryArticleList[currentCategoryIndex].isRefreshing = false;
 				this.categoryArticleList[currentCategoryIndex].isMoring = false;
 				this.categoryArticleList[currentCategoryIndex].pageIndex = _pageIndex;
-				// localStorage.categoryArticleList = JSON.stringify(this.categoryArticleList);
-				// if(this.platform.is('cordova')) await this.nativeStorage.setItem('categoryArticleList', this.categoryArticleList);
 	    		return reject();
 	    	}
     	});

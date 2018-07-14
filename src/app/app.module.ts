@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { Keyboard } from '@ionic-native/keyboard';
 
 //interceptor
@@ -42,7 +41,6 @@ import { InitialService } from '../providers/initial';
     ],
     providers: [
         StatusBar,
-        NativeStorage,
         Keyboard,
         SplashScreen, 
         {
