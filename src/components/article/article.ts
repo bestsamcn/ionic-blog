@@ -72,7 +72,7 @@ export class ArticleComponent{
 		    slidePixels: 20,
 		    iosdelay: 100,
 		    androiddelay: 150,
-		    fixedPixelsTop: 0,
+		    fixedPixelsTop: -20,
 		    fixedPixelsBottom: 60
 	   };
 	   this.nativePageTransitions.slide(options)
