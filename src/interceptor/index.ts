@@ -18,6 +18,7 @@ export class AjaxInterceptor implements HttpInterceptor {
 			if(event instanceof HttpResponse &&  (event.status !== 200 && event.status !== 304 || event.body.retCode !== 0)){
 
 				this.globalService.setToast(event.body.msg || '出错了');
+                this.globalService.setLoading(false);
 				return Observable.create(observer => observer.error(event));
 			}
 			return Observable.create(observer => observer.next(event));
@@ -37,7 +38,7 @@ export class AjaxInterceptor implements HttpInterceptor {
             }
             // 以错误的形式结束本次请求
            	// this.globalService.setToast('发生未知错误');
-           	this.globalService.setLoadingState(false);
+           	this.globalService.setLoading(false);
             return Observable.throw(res);
         })
 	}

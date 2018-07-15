@@ -18,12 +18,14 @@ export class TopComponent implements OnInit, OnChanges{
   	//页面滚动
   	scroll(){
   		this.content.ionScroll.subscribe(e=>{
-  			if(e.scrollTop >= this.BACK_TOP_THRESHOLD){
-  				this.top.nativeElement.className = 'go-top-btn show';
-  			}else{
-  				this.top.nativeElement.className = 'go-top-btn';
-  			}
-  		})
+        if(!!e){
+          if(e.scrollTop >= this.BACK_TOP_THRESHOLD){
+            this.top.nativeElement.className = 'go-top-btn show';
+          }else{
+            this.top.nativeElement.className = 'go-top-btn';
+          }
+        }
+  		});
   	}
 
 
@@ -35,7 +37,7 @@ export class TopComponent implements OnInit, OnChanges{
 
   	//返回顶部
   	scrollToTop(){
-  		this.content.scrollToTop(300);
+  		!!this.content && this.content.scrollToTop(300);
   	}
 
   	ngOnInit(){
