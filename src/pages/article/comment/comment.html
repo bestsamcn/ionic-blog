@@ -39,14 +39,19 @@
                 <p class="text-center margin-top-30 color-black font-12" *ngIf="!commentList || !commentList.length">暂无评论</p>
             </div>
         </div>
+        
     </div>
+
     <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="isMore" threshold="50px"> 
        <ion-infinite-scroll-content
             loadingSpinner="ios"
         > 
         </ion-infinite-scroll-content> 
     </ion-infinite-scroll>
+    <!-- 必须放在ion-content里 -->
+    <div class="commentbar" ion-fixed>
+        <a class="commentbar-placeholder cicon-edit" (click)="replyClick()">期待你的神评论</a>
+    </div>
 </ion-content>
-<div class="commentbar">
-    <a class="commentbar-placeholder cicon-edit" (click)="replyClick()">期待你的神评论</a>
-</div>
+
+
