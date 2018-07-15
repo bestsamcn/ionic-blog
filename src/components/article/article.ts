@@ -48,7 +48,7 @@ export class ArticleComponent{
 		public globalService: GlobalService,
 		public navController: NavController,
 		public navParams: NavParams,
-		private nativePageTransitions: NativePageTransitions
+		// private nativePageTransitions: NativePageTransitions
 	){
 		
 	}
