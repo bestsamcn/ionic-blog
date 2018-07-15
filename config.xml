@@ -85,7 +85,7 @@
     <allow-navigation href="http://10.0.1.110:8100" />
     <allow-navigation href="http://10.0.1.113:8100" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <allow-navigation href="http://192.168.0.103:8100" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <engine name="android" spec="^7.0.0" />
 </widget>

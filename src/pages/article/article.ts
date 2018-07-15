@@ -50,6 +50,7 @@ export class ArticlePage{
 	//获取文章详情
 	async getArticleDetail(id:string){
 		let res:any = await this.articleService.getArticleDetail(id);
+
 		this.article = res.curr;
 		!!$$.getCookie(res.curr._id) && (this.isLiked = true) || (this.isLiked = false);
 		this.prevID = !!res.prev && res.prev._id || '';

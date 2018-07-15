@@ -65,15 +65,16 @@ export class ArticleComponent{
 	
 	//路由跳转
 	goArticlePage(id:string){
+
 		let options: NativeTransitionOptions = {
-		    direction: 'up',
+		    direction: 'left',
 		    duration: 500,
 		    slowdownfactor: 3,
 		    slidePixels: 20,
 		    iosdelay: 100,
 		    androiddelay: 150,
-		    fixedPixelsTop: -20,
-		    fixedPixelsBottom: 60
+		    fixedPixelsTop: 0,
+		    fixedPixelsBottom: 0
 	   };
 	   this.nativePageTransitions.slide(options)
 	   .then(e=>console.log(e))

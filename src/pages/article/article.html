@@ -30,5 +30,5 @@
             </div>
         </div>
     </div>
-    <top [content]="xcontent"></top>
+    <top  *ngIf="article" [content]="xcontent" [id]="article._id"></top>
 </ion-content>
