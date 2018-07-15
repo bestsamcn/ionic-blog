@@ -28,6 +28,5 @@ export class SearchPage {
 	  	this.searchService.getArticleList({isRefresh:true, keyword});
 	  	this.keybord.close();
 	  	this.navCtrl.push(SearchResultPage);
-	  	
 	}
 }

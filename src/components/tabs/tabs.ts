@@ -43,7 +43,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         if(!this.homeService.categoryArticleList[index].articleList.length){
             this.homeService.getArticleList({isRefreshing:true, currentCategoryIndex:this.slideIndex});
         }
-
+        
         //如果当前索引为空，则不滑动
         if (index == 0) return;
         if (!!this.maxIndex && this.maxIndex <= index) {

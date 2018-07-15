@@ -12,7 +12,6 @@ import { ComponentsModule } from '../components/components.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 
-
 //布局模块
 @NgModule({
 	declarations: [
