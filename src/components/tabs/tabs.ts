@@ -20,6 +20,9 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     @ViewChild('slidesContent') slidesContent: Slides;
     public slideIndex: number;
     constructor(public globalService: GlobalService, public homeService: HomeService) {
+        this.maxIndex = localStorage.MAX_INDEX;
+        this.maxLeft = localStorage.MAX_LEFT;
+        this.disX = localStorage.DIS_X;
     }
 
     //滑动完毕
@@ -61,7 +64,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     //更新
     ngDoCheck() {
         if (this.globalService.categoryList.length != this.categoryLength) {
-            this.countLimit();
+            if(!!this.maxIndex && !!this.disX && !!this.maxLeft) this.countLimit();
             this.categoryLength = this.globalService.categoryList.length;
             this.iscroll = new IScroll('#scroll', {
                 scrollX: true,
@@ -91,11 +94,14 @@ export class TabsComponent implements AfterViewInit, DoCheck {
             disX = totalWidth - (i*width + clientWidth); 
 
             //首次溢出
-            if (disX <= width && !this.maxIndex) {
+            if (disX <= width) {
                 this.maxIndex = i ;
                 this.maxLeft = -this.maxIndex * width - disX;
                 this.disX = disX;
                 this.maxIndex = i+1;
+                localStorage.MAX_INDEX = this.maxIndex;
+                localStorage.MAX_LEFT = this.maxLeft;
+                localStorage.DIS_X = this.disX;
                 break;
             }
         }
@@ -113,7 +119,8 @@ export class TabsComponent implements AfterViewInit, DoCheck {
             scrollX: true,
             scrollY: false
         });
-        this.countLimit();
+        console.log(!this.maxIndex || !this.disX || !this.maxLeft)
+        if(!this.maxIndex || !this.disX || !this.maxLeft) this.countLimit();
         document.addEventListener('touchmove', function(e) {
             e.preventDefault();
         }, false);
