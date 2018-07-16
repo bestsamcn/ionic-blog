@@ -1,6 +1,6 @@
 <ion-header>
  	<ion-navbar>
-		<ion-title *ngIf="article">{{article.title}}</ion-title>
+		<ion-title>{{!!article && article.title || '文章详情'}}</ion-title>
  	</ion-navbar>
 </ion-header>
 
