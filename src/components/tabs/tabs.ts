@@ -5,7 +5,6 @@ import { HomeService } from '../../providers/home';
 
 declare let IScroll: any;
 
-let clientWidth: number = document.documentElement.clientWidth;
 @Component({
     selector: 'tabs',
     templateUrl: 'tabs.html'
@@ -16,13 +15,11 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     maxIndex: any;
     maxLeft: any;
     disX:number;
+
     canPullDown: boolean = true;
     @ViewChild('slidesContent') slidesContent: Slides;
     public slideIndex: number;
     constructor(public globalService: GlobalService, public homeService: HomeService) {
-        this.maxIndex = localStorage.MAX_INDEX;
-        this.maxLeft = localStorage.MAX_LEFT;
-        this.disX = localStorage.DIS_X;
     }
 
     //滑动完毕
@@ -30,7 +27,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         
         //获取当前索引
         let index: number = this.slidesContent.getActiveIndex();
-
+        
         //如果索引大于分类长度-1
         if (index > this.globalService.categoryList.length - 1) {
             index = this.globalService.categoryList.length - 1
@@ -49,11 +46,13 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         
         //如果当前索引为空，则不滑动
         if (index == 0) return;
-        if (!!this.maxIndex && this.maxIndex <= index) {
-            this.iscroll.scrollTo(this.maxLeft, 0, 300);
-            return;
+        
+        let scrollX:number = -index * 80 + 80;
+        if(-index * 80 + 80 < this.iscroll.maxScrollX){
+            scrollX = this.iscroll.maxScrollX;
         }
-        this.iscroll.scrollTo(-index * 80 + 80, 0, 300)
+        console.log(scrollX, this.iscroll.maxScrollX, 'DDDDDDDDDDDDDDDDDDDDDDD')
+        this.iscroll.scrollTo(scrollX, 0, 300)
     }
 
     //页签点击
@@ -64,7 +63,6 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     //更新
     ngDoCheck() {
         if (this.globalService.categoryList.length != this.categoryLength) {
-            if(!!this.maxIndex && !!this.disX && !!this.maxLeft) this.countLimit();
             this.categoryLength = this.globalService.categoryList.length;
             this.iscroll = new IScroll('#scroll', {
                 scrollX: true,
@@ -84,28 +82,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         }
     }
 
-    //计算iscroll极限
-    countLimit(){
-        //获取右侧溢出距离
-        let width = 80;
-        let totalWidth = this.categoryLength*width;
-        let disX: number
-        for(let i = 0; i< this.categoryLength; i++){
-            disX = totalWidth - (i*width + clientWidth); 
 
-            //首次溢出
-            if (disX <= width) {
-                this.maxIndex = i ;
-                this.maxLeft = -this.maxIndex * width - disX;
-                this.disX = disX;
-                this.maxIndex = i+1;
-                localStorage.MAX_INDEX = this.maxIndex;
-                localStorage.MAX_LEFT = this.maxLeft;
-                localStorage.DIS_X = this.disX;
-                break;
-            }
-        }
-    }
     
 
     //将要滑动
@@ -119,8 +96,6 @@ export class TabsComponent implements AfterViewInit, DoCheck {
             scrollX: true,
             scrollY: false
         });
-        console.log(!this.maxIndex || !this.disX || !this.maxLeft)
-        if(!this.maxIndex || !this.disX || !this.maxLeft) this.countLimit();
         document.addEventListener('touchmove', function(e) {
             e.preventDefault();
         }, false);
