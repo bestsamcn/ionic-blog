@@ -40,6 +40,7 @@ export class ArticlePage extends Base{
 	public prevID:string;
 	public nextID:string;
 	public isLiked:boolean;
+	public id:string;
 	constructor(
 		public navController: NavController,
 		public navParams: NavParams,
@@ -48,7 +49,7 @@ export class ArticlePage extends Base{
 	) {
 		super(nativePageTransitions);
 		let id:string = navParams.get('id');
-		this.getArticleDetail(id);
+		this.id = id;
 	}
 
 
@@ -91,5 +92,12 @@ export class ArticlePage extends Base{
     onStart(){
     	let oFooter:{nativeElement:{className:string}} = this.xothers;
     	oFooter.nativeElement.className = 'others active';
+    }
+	
+	//防止转场卡顿
+    ionViewDidEnter(){
+    	setTimeout(()=>{
+    		this.id && this.getArticleDetail(this.id);
+    	});
     }
 }
