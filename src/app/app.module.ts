@@ -32,6 +32,7 @@ import { InitialService } from '../providers/initial';
         BrowserAnimationsModule,
         IonicModule.forRoot(MyApp, {
             tabsHideOnSubPages: 'true',
+            enableSwipeBack:true,
             iconMode:'ios',
             mode:'ios',
             backButtonText:''

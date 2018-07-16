@@ -13,7 +13,6 @@ import { SearchResultPage } from './result/result';
 })
 export class SearchPage {
 	@ViewChild('searchbar') searchbar:Searchbar;
-	
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
@@ -28,5 +27,15 @@ export class SearchPage {
 	  	this.searchService.getArticleList({isRefresh:true, keyword});
 	  	this.keybord.close();
 	  	this.navCtrl.push(SearchResultPage);
+	}
+
+	ionViewDidEnter(){
+	  	setTimeout(() => {
+	        if(localStorage.isFromResultPage == 'false'){
+	        	this.searchbar.setFocus();
+	        }else{
+	        	localStorage.isFromResultPage = false;
+	        }
+	   });
 	}
 }

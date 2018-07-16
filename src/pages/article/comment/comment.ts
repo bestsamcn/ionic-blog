@@ -13,7 +13,7 @@ import { CommentComponent } from '../../../components/comment/comment';
 export class CommentPage {
     pageIndex=1;
     pageSize=5;
-    total=6;
+    total=0;
     commentList=[];
     isMore=true;
     article: string;

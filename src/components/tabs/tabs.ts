@@ -51,6 +51,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         if(-index * 80 + 80 < this.iscroll.maxScrollX){
             scrollX = this.iscroll.maxScrollX;
         }
+        this.globalService.setToast(`scrl:${!!this.iscroll}, i:${index}, sx:${scrollX}, msx:${this.iscroll.maxScrollX}, x:${this.iscroll.x}`)
         this.iscroll.scrollTo(scrollX, 0, 300)
     }
 
@@ -63,6 +64,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     ngDoCheck() {
         if (!!this.globalService.categoryList && !!this.globalService.categoryList.length && this.globalService.categoryList.length != this.categoryLength) {
             this.categoryLength = this.globalService.categoryList.length;
+            this.globalService.setToast('reset iscroll')
             this.iscroll = new IScroll('#scroll', {
                 scrollX: true,
                 scrollY: false
@@ -91,6 +93,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
 
     //初始化
     ngAfterViewInit() {
+        this.globalService.setToast('init iscroll')
         this.iscroll = new IScroll('#scroll', {
             scrollX: true,
             scrollY: false

@@ -38,4 +38,8 @@ export class SearchResultPage {
         this.searchService.keyword = evt.value;
         this.searchService.setKeyword(evt.value);
     }
+
+    ionViewDidEnter(){
+        localStorage.isFromResultPage = true;
+    }
 }
