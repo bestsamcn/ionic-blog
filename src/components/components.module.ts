@@ -11,6 +11,7 @@ import { ClockComponent } from './clock/clock';
 import { CommentComponent } from './comment/comment';
 import { EmojiComponent } from './emoji/emoji';
 import { TopComponent } from './top/top';
+import { LoadingComponent } from './loading/loading';
 
 
 //布局模块
@@ -24,7 +25,8 @@ import { TopComponent } from './top/top';
     	ClockComponent,
     	CommentComponent,
     	EmojiComponent,
-        TopComponent
+        TopComponent,
+        LoadingComponent
     ],
     entryComponents:[
 		CommentComponent,
@@ -41,7 +43,8 @@ import { TopComponent } from './top/top';
     	ClockComponent,
     	CommentComponent,
     	EmojiComponent,
-        TopComponent
+        TopComponent,
+        LoadingComponent
     ]
 })
 export class ComponentsModule {}

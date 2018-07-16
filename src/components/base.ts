@@ -19,7 +19,7 @@ export class Base{
             fixedPixelsTop: 0,
             fixedPixelsBottom: 0
        };
-       this.nativePageTransitions.slide(options)
+       !!this.nativePageTransitions && !!this.nativePageTransitions.slide && this.nativePageTransitions.slide(options)
        .then(e=>console.log(e))
        .catch(e=>console.log(e));
     }

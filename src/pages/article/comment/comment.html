@@ -36,7 +36,8 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center margin-top-30 color-black font-12" *ngIf="!commentList || !commentList.length">暂无评论</p>
+                <loading [loading]="!!isMore && (!commentList || !commentList.length)"></loading>
+                <p class="text-center margin-top-30 color-black font-12" *ngIf="!isMore && (!commentList || !commentList.length)">暂无评论</p>
             </div>
         </div>
         

@@ -28,6 +28,8 @@
                 </div>
             </div>
         </div>
+        <loading [loading]="!!_isMore && (!articleList || !articleList.length)"></loading>
+        <p class="text-center margin-top-30 color-black font-12" *ngIf="!_isMore && (!articleList || !articleList.length)">暂无文章</p>
     </div>
     <ion-infinite-scroll (ionInfinite)="onLoadMoreCall($event)" [enabled]="_isMore" threshold="50px"> 
        <ion-infinite-scroll-content
