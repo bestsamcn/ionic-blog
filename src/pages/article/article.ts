@@ -4,6 +4,9 @@ import { POSTER_URL, FACE_URL } from '../../config/index';
 import { ArticleService } from '../../providers/article';
 import $$ from '../../utils/index';
 import { CommentPage } from './comment/comment';
+import { Base } from '../../components/base';
+import { NativePageTransitions} from '@ionic-native/native-page-transitions';
+
 
 interface Article{
 	_id: string,
@@ -28,7 +31,7 @@ interface Article{
 	selector: 'page-article',
 	templateUrl: 'article.html',
 })
-export class ArticlePage{
+export class ArticlePage extends Base{
 	@ViewChild('xcontent') xcontent:Content;
 	@ViewChild('xothers') xothers:ElementRef;
 	public POSTER_URL:string = POSTER_URL;
@@ -40,8 +43,10 @@ export class ArticlePage{
 	constructor(
 		public navController: NavController,
 		public navParams: NavParams,
-		public articleService: ArticleService
+		public articleService: ArticleService,
+		nativePageTransitions: NativePageTransitions,
 	) {
+		super(nativePageTransitions);
 		let id:string = navParams.get('id');
 		this.getArticleDetail(id);
 	}

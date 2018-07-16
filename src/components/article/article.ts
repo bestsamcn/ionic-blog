@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-// import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { POSTER_URL } from '../../config/index';
 import { GlobalService } from '../../providers/global';
 import { ArticlePage } from '../../pages/article/article';
@@ -47,8 +46,7 @@ export class ArticleComponent{
 	constructor(
 		public globalService: GlobalService,
 		public navController: NavController,
-		public navParams: NavParams,
-		// private nativePageTransitions: NativePageTransitions
+		public navParams: NavParams
 	){
 		
 	}
@@ -65,20 +63,6 @@ export class ArticleComponent{
 	
 	//路由跳转
 	goArticlePage(id:string){
-
-		// let options: NativeTransitionOptions = {
-		//     direction: 'left',
-		//     duration: 500,
-		//     slowdownfactor: 3,
-		//     slidePixels: 20,
-		//     iosdelay: 100,
-		//     androiddelay: 150,
-		//     fixedPixelsTop: 0,
-		//     fixedPixelsBottom: 0
-	 //   };
-	 //   this.nativePageTransitions.slide(options)
-	 //   .then(e=>console.log(e))
-	 //   .catch(e=>console.log(e));
 		this.navController.push(ArticlePage, {id:id});
 	}
 }

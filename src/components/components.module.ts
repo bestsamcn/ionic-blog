@@ -12,6 +12,7 @@ import { CommentComponent } from './comment/comment';
 import { EmojiComponent } from './emoji/emoji';
 import { TopComponent } from './top/top';
 
+
 //布局模块
 @NgModule({
 	declarations: [
@@ -26,7 +27,7 @@ import { TopComponent } from './top/top';
         TopComponent
     ],
     entryComponents:[
-		CommentComponent
+		CommentComponent,
     ],
 	imports: [
 		IonicModule.forRoot(HeaderComponent),

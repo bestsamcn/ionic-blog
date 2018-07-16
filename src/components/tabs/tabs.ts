@@ -61,7 +61,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
 
     //更新
     ngDoCheck() {
-        if (this.globalService.categoryList.length != this.categoryLength) {
+        if (!!this.globalService.categoryList && !!this.globalService.categoryList.length && this.globalService.categoryList.length != this.categoryLength) {
             this.categoryLength = this.globalService.categoryList.length;
             this.iscroll = new IScroll('#scroll', {
                 scrollX: true,
