@@ -51,7 +51,6 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         if(-index * 80 + 80 < this.iscroll.maxScrollX){
             scrollX = this.iscroll.maxScrollX;
         }
-        console.log(scrollX, this.iscroll.maxScrollX, 'DDDDDDDDDDDDDDDDDDDDDDD')
         this.iscroll.scrollTo(scrollX, 0, 300)
     }
 
