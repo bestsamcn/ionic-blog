@@ -23,7 +23,7 @@ export class TabsComponent implements AfterViewInit, DoCheck {
     }
 
     //滑动完毕
-    onSlideChanged(e) {
+    onSlideChanged() {
         
         //获取当前索引
         let index: number = this.slidesContent.getActiveIndex();
@@ -47,11 +47,12 @@ export class TabsComponent implements AfterViewInit, DoCheck {
         //如果当前索引为空，则不滑动
         if (index == 0) return;
         
+
         let scrollX:number = -index * 80 + 80;
         if(-index * 80 + 80 < this.iscroll.maxScrollX){
             scrollX = this.iscroll.maxScrollX;
         }
-        this.globalService.setToast(`scrl:${!!this.iscroll}, i:${index}, sx:${scrollX}, msx:${this.iscroll.maxScrollX}, x:${this.iscroll.x}`)
+        localStorage.scrollX = scrollX;
         this.iscroll.scrollTo(scrollX, 0, 300)
     }
 
@@ -62,13 +63,18 @@ export class TabsComponent implements AfterViewInit, DoCheck {
 
     //更新
     ngDoCheck() {
-        if (!!this.globalService.categoryList && !!this.globalService.categoryList.length && this.globalService.categoryList.length != this.categoryLength) {
+        if ( this.globalService.categoryList.length != this.categoryLength || (!this.iscroll || !this.iscroll.scrollerWidth)) {
+            let _scrollerWidth = !!this.iscroll && this.iscroll.scrollerWidth || 0;;
             this.categoryLength = this.globalService.categoryList.length;
-            this.globalService.setToast('reset iscroll')
+
+            //重置scroll，防止当this.iscroll.scrollerWidt=0的情况下，导致滑动失效的问题
             this.iscroll = new IScroll('#scroll', {
                 scrollX: true,
                 scrollY: false
             });
+
+            //并滑动回上一次记录的位置
+            !_scrollerWidth && this.iscroll.scrollTo(localStorage.scrollX, 0, 300);
         }
     }
 

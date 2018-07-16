@@ -25,6 +25,7 @@ export class MyApp implements AfterViewInit{
             this.statusBar.overlaysWebView(false);
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+            localStorage.isFromResultPage = 'false';
         });
     }
 }
