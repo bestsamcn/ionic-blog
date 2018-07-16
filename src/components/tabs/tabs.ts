@@ -99,7 +99,6 @@ export class TabsComponent implements AfterViewInit, DoCheck {
 
     //初始化
     ngAfterViewInit() {
-        this.globalService.setToast('init iscroll')
         this.iscroll = new IScroll('#scroll', {
             scrollX: true,
             scrollY: false
